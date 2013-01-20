@@ -1,0 +1,135 @@
+﻿<html>
+    <head>
+        <title> Calculator </title>
+        <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <div class="calculator">
+            <ul class="menu">
+                <li>View</li>
+                <li>Edit</li>
+                <li>Help</li>
+            </ul>
+
+            <div class="textbox_panel panel">
+                <input type="text" value="8854455" class="textbox_input"/>
+            </div>
+
+            <div class="binary_digits_panel panel">
+                <ul class="binary_digits">
+                    <li class="first_number">0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li><li>0000</li>
+                </ul>
+
+                <ul class="decimal_digits">
+                    <li class="first_number">63</li><li class="second_number">47</li><li class="third_number">32</li>
+                </ul>
+
+                <ul class="binary_digits">
+                    <li class="first_number">0000</li><li>0000</li><li>1000</li><li>0111</li><li>0001</li><li>1011</li><li>1011</li><li>0111</li>
+                </ul>
+
+                <ul class="decimal_digits">
+                    <li class="first_number">31</li><li class="second_number">15</li><li class="third_number_single_digit">0</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="options">
+                    <div class="radiobox_panel panel">
+                        <ul>
+                            <li><label><input type="radio" name="NumeralSystem"/> Hex</label></li>
+                            <li><label><input checked="checked" type="radio" name="NumeralSystem"/> Dec</label></li>
+                            <li><label><input type="radio" name="NumeralSystem"/> Oct</label></li>
+                            <li><label><input type="radio" name="NumeralSystem"/> Bin</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="radiobox_panel panel">
+                        <ul>
+                            <li><label><input checked="checked" type="radio" name="Size"/> Qword</label></li>
+                            <li><label><input type="radio" name="Size"/> Dword</label></li>
+                            <li><label><input type="radio" name="Size"/> Word</label></li>
+                            <li><label><input type="radio" name="Size"/> Byte</label></li>
+                        </ul>
+                    </div>
+                </div>
+            
+                <div class="buttons">
+                    <div class="layer">
+                        <button class="button button_muted">&nbsp;</button>
+                        <button class="button">Mod</button>
+                        <button class="button" disabled>A</button>
+                        <button class="button button_muted" >MC</button>
+                        <button class="button button_muted" >MR</button>
+                        <button class="button button_muted" >MS</button>
+                        <button class="button button_muted" >M+</button>
+                        <button class="button button_muted" >M-</button>
+                    </div>
+
+                    <div class="layer">
+                        <button class="button">(</button>
+                        <button class="button">)</button>
+                        <button class="button" disabled>B</button>
+                        <button class="button">←</button>
+                        <button class="button">CE</button>
+                        <button class="button">C</button>
+                        <button class="button">±</button>
+                        <button class="button" disabled>√</button>
+                    </div>
+
+                    <div class="layer">
+                        <button class="button">RoL</button>
+                        <button class="button">RoR</button>
+                        <button class="button" disabled>C</button>
+                        <button class="button button_digit">7</button>
+                        <button class="button button_digit">8</button>
+                        <button class="button button_digit">9</button>
+                        <button class="button">/</button>
+                        <button class="button" disabled>%</button>
+                    </div>
+
+                    <div class="layer">
+                        <button class="button">Or</button>
+                        <button class="button">Xor</button>
+                        <button class="button" disabled>D</button>
+                        <button class="button button_digit">4</button>
+                        <button class="button button_digit">5</button>
+                        <button class="button button_digit">6</button>
+                        <button class="button">*</button>
+                        <button class="button" disabled>1/x</button>
+                    </div>
+
+                    <div>
+                        <div class="left_layer">
+                            <div class="layer">
+                                <button class="button">Lsh</button>
+                                <button class="button">Rsh</button>
+                                <button class="button" disabled>E</button>
+                                <button class="button button_digit">1</button>
+                                <button class="button button_digit">2</button>
+                                <button class="button button_digit">3</button>
+                                <button class="button">-</button>
+                            </div>
+
+                            <div class="layer">
+                                <button class="button">Not</button>
+                                <button class="button">And</button>
+                                <button class="button" disabled>F</button>
+                                <button class="button button_zero button_digit">0</button>
+                                <button class="button">.</button>
+                                <button class="button">+</button>
+                            </div>
+                        </div>
+
+                        <button class="button button_equal_sign button_bold_label">=</button>
+                     
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+</html>

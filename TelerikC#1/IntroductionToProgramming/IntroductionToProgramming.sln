@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintMyName", "PrintMyName\PrintMyName.csproj", "{BAF016BC-C570-4039-8BD9-EAAF06EFCB96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintNumbers", "PrintNumbers\PrintNumbers.csproj", "{CBF8E537-CB85-4C89-A3AE-95B67020FD38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintFirstAndLastName", "PrintFirstAndLastName\PrintFirstAndLastName.csproj", "{8A88A7BE-2E38-4601-9D81-7F1D1245EA2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintDateAndTime", "PrintDateAndTime\PrintDateAndTime.csproj", "{C2101D8C-09AD-4220-B171-F977FE68A938}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintSquare", "PrintSquare\PrintSquare.csproj", "{556D5DE6-2FB2-40F9-8E98-80B01E410252}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintSequence", "PrintSequence\PrintSequence.csproj", "{6DFAAB18-5A4C-490E-A74E-91100D51046B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateAge", "CalculateAge\CalculateAge.csproj", "{144C55B9-AC06-4E20-A17D-C8C1719F39F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloCSharp", "HelloCSharp\HelloCSharp.csproj", "{B9D87EEA-3CE8-4158-AC45-BABBAA35441E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAF016BC-C570-4039-8BD9-EAAF06EFCB96}.Debug|x86.ActiveCfg = Debug|x86
+		{BAF016BC-C570-4039-8BD9-EAAF06EFCB96}.Debug|x86.Build.0 = Debug|x86
+		{BAF016BC-C570-4039-8BD9-EAAF06EFCB96}.Release|x86.ActiveCfg = Release|x86
+		{BAF016BC-C570-4039-8BD9-EAAF06EFCB96}.Release|x86.Build.0 = Release|x86
+		{CBF8E537-CB85-4C89-A3AE-95B67020FD38}.Debug|x86.ActiveCfg = Debug|x86
+		{CBF8E537-CB85-4C89-A3AE-95B67020FD38}.Debug|x86.Build.0 = Debug|x86
+		{CBF8E537-CB85-4C89-A3AE-95B67020FD38}.Release|x86.ActiveCfg = Release|x86
+		{CBF8E537-CB85-4C89-A3AE-95B67020FD38}.Release|x86.Build.0 = Release|x86
+		{8A88A7BE-2E38-4601-9D81-7F1D1245EA2F}.Debug|x86.ActiveCfg = Debug|x86
+		{8A88A7BE-2E38-4601-9D81-7F1D1245EA2F}.Debug|x86.Build.0 = Debug|x86
+		{8A88A7BE-2E38-4601-9D81-7F1D1245EA2F}.Release|x86.ActiveCfg = Release|x86
+		{8A88A7BE-2E38-4601-9D81-7F1D1245EA2F}.Release|x86.Build.0 = Release|x86
+		{C2101D8C-09AD-4220-B171-F977FE68A938}.Debug|x86.ActiveCfg = Debug|x86
+		{C2101D8C-09AD-4220-B171-F977FE68A938}.Debug|x86.Build.0 = Debug|x86
+		{C2101D8C-09AD-4220-B171-F977FE68A938}.Release|x86.ActiveCfg = Release|x86
+		{C2101D8C-09AD-4220-B171-F977FE68A938}.Release|x86.Build.0 = Release|x86
+		{556D5DE6-2FB2-40F9-8E98-80B01E410252}.Debug|x86.ActiveCfg = Debug|x86
+		{556D5DE6-2FB2-40F9-8E98-80B01E410252}.Debug|x86.Build.0 = Debug|x86
+		{556D5DE6-2FB2-40F9-8E98-80B01E410252}.Release|x86.ActiveCfg = Release|x86
+		{556D5DE6-2FB2-40F9-8E98-80B01E410252}.Release|x86.Build.0 = Release|x86
+		{6DFAAB18-5A4C-490E-A74E-91100D51046B}.Debug|x86.ActiveCfg = Debug|x86
+		{6DFAAB18-5A4C-490E-A74E-91100D51046B}.Debug|x86.Build.0 = Debug|x86
+		{6DFAAB18-5A4C-490E-A74E-91100D51046B}.Release|x86.ActiveCfg = Release|x86
+		{6DFAAB18-5A4C-490E-A74E-91100D51046B}.Release|x86.Build.0 = Release|x86
+		{144C55B9-AC06-4E20-A17D-C8C1719F39F5}.Debug|x86.ActiveCfg = Debug|x86
+		{144C55B9-AC06-4E20-A17D-C8C1719F39F5}.Debug|x86.Build.0 = Debug|x86
+		{144C55B9-AC06-4E20-A17D-C8C1719F39F5}.Release|x86.ActiveCfg = Release|x86
+		{144C55B9-AC06-4E20-A17D-C8C1719F39F5}.Release|x86.Build.0 = Release|x86
+		{B9D87EEA-3CE8-4158-AC45-BABBAA35441E}.Debug|x86.ActiveCfg = Debug|x86
+		{B9D87EEA-3CE8-4158-AC45-BABBAA35441E}.Debug|x86.Build.0 = Debug|x86
+		{B9D87EEA-3CE8-4158-AC45-BABBAA35441E}.Release|x86.ActiveCfg = Release|x86
+		{B9D87EEA-3CE8-4158-AC45-BABBAA35441E}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

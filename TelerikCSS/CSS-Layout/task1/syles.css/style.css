@@ -1,0 +1,50 @@
+dl
+{    
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+dd, dt
+{
+    font-size: 18px;
+}
+
+
+dd
+{
+    margin-left: 10px;
+    height: 0;
+    margin: 0;
+    color: #888;
+
+    -webkit-transition: height 600ms; /* Safari and Chrome */
+       -moz-transition: height 600ms; /* Firefox 4 */
+         -o-transition: height 600ms; /* Opera */
+            transition: height 600ms;
+
+    -webkit-transition-timing-function: ease-in-out; /* Safari and Chrome */
+       -moz-transition-timing-function: ease-in-out; /* Firefox 4 */    
+         -o-transition-timing-function: ease-in-out; /* Opera */
+            transition-timing-function: ease-in-out;
+}
+
+a
+{
+    color: #000;
+    display: block;
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+
+dl:hover > dd
+{
+    height: 18px;
+    margin-bottom: 4px;
+}
+

@@ -1,0 +1,227 @@
+body, button, input 
+{
+    color: #333;
+    font: 12px/1.2 Segoe UI, sans-serif;
+}
+
+.calculator 
+{
+    margin: 0 auto;
+    padding: 0 10px 5px;
+    border: 1px solid #999;
+    
+    height: 377px;
+    width: 400px;
+
+    background: -webkit-linear-gradient(#F0F0F0 0, #D9E4F1 100px);
+    background:    -moz-linear-gradient(#F0F0F0 0, #D9E4F1 100px);
+    background:      -o-linear-gradient(#F0F0F0 0, #D9E4F1 100px);
+    background:         linear-gradient(#F0F0F0 0, #D9E4F1 100px);
+}
+
+.menu
+{
+    height: 15px;
+    margin: 0 -10px 10px;
+    padding: 3px 0 2px;
+    border-bottom: 1px solid #B6BCCC;
+    background: -webkit-linear-gradient(#FEFEFF 0, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
+    background:    -moz-linear-gradient(#FEFEFF 0, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
+    background:      -o-linear-gradient(#FEFEFF 0, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
+    background:         linear-gradient(#FEFEFF 0, #E5EAF5 34%, #D4DBED 35%, #E1E6F6 100%);
+}
+
+ul
+{
+    padding-left: 0;
+}
+
+.menu li, .binary_digits_panel ul li
+{
+    float: left;
+    list-style: none;
+    margin-left: 10px;
+}
+
+.menu li:first-letter
+{
+    text-decoration: underline;
+}
+
+.panel
+{
+    border: 1px solid #727F8D;
+    border-radius: 3px;
+}
+
+.textbox_panel
+{
+    background: -webkit-linear-gradient(#E6EFFB, #FFFFFF);
+    background: -moz-linear-gradient(#E6EFFB, #FFFFFF);
+    background: -o-linear-gradient(#E6EFFB, #FFFFFF);
+    background: linear-gradient(#E6EFFB, #FFFFFF);
+    
+    padding: 15px 5px 5px;
+}
+
+.textbox_input
+{
+    font-size: 24px;
+    width: 100%;
+    outline: 0;
+    border: none;
+    background: none;
+    text-align: right;
+}
+
+.binary_digits_panel 
+{ 
+    margin-top: 7px;
+    font-size: 14px;
+    height: 73px;
+    font-family: Consolas, monospace;
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.binary_digits_panel .binary_digits
+{
+    padding-left: 0;
+    margin-top: 5px;
+}
+
+.binary_digits_panel .decimal_digits
+{
+    padding-left: 0;
+    color: #666;
+}
+
+.binary_digits_panel .binary_digits li
+{
+    margin-left: 19px;
+}
+
+.binary_digits_panel .second_number
+{
+    margin-left: 190px;
+}
+
+.binary_digits_panel .third_number
+{
+    margin-left: 151px;
+}
+
+.binary_digits_panel .third_number_single_digit
+{
+    margin-left: 158px;
+}
+
+.binary_digits_panel ul .first_number
+{
+    margin-left: 5px;
+}
+
+.calculator .radiobox_panel
+{
+    margin-top: 5px;
+    box-shadow: inset 0 0 0 1px #fff;
+    height: 90px;
+    width: 77px;
+}
+
+.calculator .radiobox_panel ul
+{
+    margin-top: 8px;
+    list-style: none;
+}
+
+
+.calculator .options
+{
+    margin-top: 2px;
+    float: left;
+    width: 0px;
+    height: 200px;
+}
+
+.calculator .buttons 
+{
+    width: 318px;
+    height: 30px;
+    margin-left: 4px;
+    margin-top: 2px;
+    float: right;
+}
+
+.calculator .buttons .button
+{
+    height: 27px;
+    width: 35px;
+    margin-left: 2px;
+
+    border: 1px solid #8797AA;
+    border-radius: 3px;
+
+    background: -webkit-linear-gradient(#F0F6FB 0, #E2EAF3 49%, #D5E0ED 50%, #D7E2EF 100%);
+    background:    -moz-linear-gradient(#F0F6FB 0, #E2EAF3 49%, #D5E0ED 50%, #D7E2EF 100%);
+    background:      -o-linear-gradient(#F0F6FB 0, #E2EAF3 49%, #D5E0ED 50%, #D7E2EF 100%);
+    background:         linear-gradient(#F0F6FB 0, #E2EAF3 49%, #D5E0ED 50%, #D7E2EF 100%);
+    line-height: 25px; 
+}
+
+.calculator .buttons .button_digit
+{
+    background: -webkit-linear-gradient(#F7FBFF 0, #EDF3F8 49%, #E7EDF5 50%, #F3FBFF 100%);
+    background:    -moz-linear-gradient(#F7FBFF 0, #EDF3F8 49%, #E7EDF5 50%, #F3FBFF 100%);
+    background:      -o-linear-gradient(#F7FBFF 0, #EDF3F8 49%, #E7EDF5 50%, #F3FBFF 100%);
+    background:         linear-gradient(#F7FBFF 0, #EDF3F8 49%, #E7EDF5 50%, #F3FBFF 100%);
+    font-size: 14px;
+}
+
+.calculator .buttons .button_muted
+{
+    background: #D9E4F1;
+}
+
+.calculator .buttons .button:disabled
+{
+    border-color: #B4C2D1;
+    background: #D9E4F1;
+}
+
+.calculator .buttons .layer
+{
+    margin-top: 4.6px;
+}
+
+.calculator .buttons .left_layer
+{
+    float: left;
+    width: 278px;
+}
+
+.calculator .buttons .layer .button_zero
+{
+    width: 75px;
+}
+
+.calculator .buttons .button_equal_sign
+{
+    margin-top: 5.2px;
+    height: 59px;
+    float: right;
+}
+
+.calculator .buttons .button_bold_label
+{
+    font-size: 22px; 
+    font-weight: bold;
+}
+
+.calculator .button:hover, .calculator .button:focus
+{
+    border-color: #F5D50F;
+    background: -webkit-linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background:    -moz-linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background:      -o-linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+    background:         linear-gradient(#FEF5EB 0, #FCE3C6 49%, #FBD075 50%, #FCF8CA 100%);
+}

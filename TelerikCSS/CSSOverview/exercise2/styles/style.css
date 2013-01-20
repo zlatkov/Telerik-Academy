@@ -1,0 +1,123 @@
+﻿body
+{
+    font-family: Arial, sans-serif;
+}
+
+table
+{
+    border-spacing: 0;
+    border-collapse: separate;
+    border: 0;
+}
+
+table th
+{
+    background-image: url("../img/border.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+
+    border-collapse: separate;
+    border-top: none;
+    border-bottom: none; 
+
+    border-left: 2px solid #3B9008; 
+    border-right: 2px solid #0ed812;
+
+    color: #FFF;
+    background-color: #58BB06;
+    font-weight: normal;
+    text-align: left;
+    padding: 6px;
+    height: 22px;
+}
+
+table tr:nth-child(even)
+{
+    background-color: #ECECD8;
+}
+
+table td
+{
+    height: 26px;
+    text-align: left;
+    padding: 6px;
+    padding-left: 8px;
+    
+    border-top: none;
+    border-bottom: none;
+      
+    border-right: 2px solid #FFF;
+    border-left: 2px solid #D2D1BE;
+}
+
+table tr th:first-child
+{
+    border-left: none;
+}
+
+table tr td:first-child
+{
+    border-left: none;
+}
+
+table tr th:last-child
+{
+    border-right: none;
+}
+
+table tr th:last-child
+{
+    border-right: none;
+}
+
+img
+{
+    vertical-align: middle;
+    padding: 4px;
+    height: 21px;
+    width: 31px;
+}
+
+.contact_name_col
+{
+    width: 205px;
+}
+
+.city_col
+{
+    width: 165px;
+}
+
+.country_col
+{
+    width: 195px;
+}
+
+.is_promoted_col
+{
+    width: 105px;
+}
+
+.flag
+{
+    background-size: 31px 21px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 50px;
+}
+
+td.flag.german_flag
+{
+    background-image: url("../img/Germany.png");
+}
+
+td.flag.mexican_flag
+{
+    background-image: url("../img/Mexico.png");
+}
+
+td.flag.uk_flag
+{
+    background-image: url("../img/UK.png");
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	</head>
+	
+	<body>
+		<table border="1" cellpadding="2" cellspacing="0">
+			
+			<form method="POST" action="#">
+			
+			
+				<tbody>
+					
+					<tr>
+						<td align="right"> 
+							<b> Last Name </b> 
+						</td>
+						<td colspan="3">
+							<input type="text" name="lastName" value="Nakov" />
+						</td>
+					</tr>
+					
+					<tr>
+						<td align="right"> 
+							<b> First Name </b>
+						</td>
+						<td colspan="3">
+							<input type="text" name="firstName" value="Svetlin" />
+						</td>
+					</tr>
+					
+					<tr>
+						<td align="right"> 
+							<b> Address </b>
+						</td>
+						<td colspan="3">
+							<textarea> 17 Hristo Botev Str. floor 3, apt 12 </textarea>
+						</td>
+					</tr>
+					
+					<tr>
+						<td align="right"> 
+							<b> City </b>
+						</td>
+						<td>
+							<input type="text" name="city" value="Kaspichan" />
+						</td>
+						
+						<td>
+							<label> 
+								<b> State </b>
+							</label>
+						</td>
+						
+						<td>
+							<input type="text" name="state" value="" />
+						</td>
+					
+					</tr>
+					
+					<tr>
+						<td align="right"> 
+							<b> Zip/Postal Code </b>
+						</td>
+						<td colspan="3">
+							<input type="text" name="zip_code" value="9325" />
+						</td>
+					</tr>
+					
+					<tr>
+						<td align="right"> 
+							<b> Country </b>
+						</td>
+						<td colspan="3">
+							<select>
+								<option> Germany </option>
+								<option> Norway </option>
+								<option selected="selected"> Bulgaria </option>
+								<option> Sweden </option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td align="right"> 
+							<b> Phone (country code,<br> area code, number) </b>
+						</td>
+						
+						<td colspan="3">
+							<label> ( + </label>
+							<input type="text" size="5" name="country_code" value="359" />
+							<label> ) </label>
+							<input type="text" size="5" name="area_code" value="88" />
+							<label> - </label>
+							<input type="text" name="number" value="8334343" />
+						</td>
+					</tr>
+					
+					<tr>
+						<td> 
+							<b> E-mail </b>
+						</td>
+						
+						<td colspan="3">
+							<input type="text" name="email" value="nakov@kaspichan.org" />
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<b> Birth Date </b>
+						</td>
+						
+						<td colspan="3">
+							<label> Month </label>
+							<input type="text" name="month" value="06" size="1" />
+							<label> Day </label>
+							<input type="text" name="day" value="15" size="1" />
+							<label> Year (4 digit) </label>
+							<input type="text" name="year" value="1980" />
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<b> Gender </b>
+						</td>
+						
+						<td colspan="3">
+							<select>
+								<option selected="selected"> Male </option>
+								<option> Female </option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<b> Starting date </b>
+						</td>
+						
+						<td colspan="3">
+							<input checked type="radio" name="starting_date" value="Spring"> 
+								Spring 2006
+							</input>
+							
+							<input type="radio" name="starting_date" value="Summer">
+								Summer 2006
+							</input>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<b> Comments/Questions </b>
+						</td>
+						
+						<td colspan="3">
+							<textarea rows="7"> Please send me more information about the lodging. </textarea>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="4" align="center" bgcolor="#3399FF">
+							<fieldset color="red">
+								<input type="submit" name="submit_button" value="Submit" />
+								<input type="button" value="Clear This Form" name="clear_button" />
+							</fieldset>
+						</td>
+					</tr>
+					
+				</tbody>
+				
+			
+			</form>
+			
+		</table>
+			
+	</body>
+
+</html>
