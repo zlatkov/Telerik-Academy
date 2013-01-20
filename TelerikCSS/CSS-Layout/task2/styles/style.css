@@ -36,6 +36,11 @@ body
     margin-bottom: 40px;
 }
 
+.category p
+{
+    margin: 0 0 10px 0;
+}
+
 .category:last-child
 {
     margin-bottom: 20px;
@@ -44,6 +49,7 @@ body
 .buttons
 {
     float: right;
+    margin: 0;
 }
 
 .listen-button, .add-button
