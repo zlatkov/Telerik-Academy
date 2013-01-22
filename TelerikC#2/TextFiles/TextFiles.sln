@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractFromXml", "ExtractFr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveWordsWithPrefix", "RemoveWordsWithPrefix\RemoveWordsWithPrefix.csproj", "{E71835F1-8CEF-4812-B037-22D55036FFC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveWordsListedInFile", "RemoveWordsListedInFile\RemoveWordsListedInFile.csproj", "{92C7346D-1BD6-4268-A591-0FB5DFA3A57B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountWordsOccurrencesInFile", "CountWordsOccurrencesInFile\CountWordsOccurrencesInFile.csproj", "{F1C3917C-5FFE-48E6-B89E-79D538F7DAAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,14 @@ Global
 		{E71835F1-8CEF-4812-B037-22D55036FFC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E71835F1-8CEF-4812-B037-22D55036FFC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E71835F1-8CEF-4812-B037-22D55036FFC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92C7346D-1BD6-4268-A591-0FB5DFA3A57B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92C7346D-1BD6-4268-A591-0FB5DFA3A57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92C7346D-1BD6-4268-A591-0FB5DFA3A57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92C7346D-1BD6-4268-A591-0FB5DFA3A57B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C3917C-5FFE-48E6-B89E-79D538F7DAAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C3917C-5FFE-48E6-B89E-79D538F7DAAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C3917C-5FFE-48E6-B89E-79D538F7DAAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C3917C-5FFE-48E6-B89E-79D538F7DAAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
