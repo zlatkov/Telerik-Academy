@@ -1,0 +1,110 @@
+body 
+{
+    margin: 0 auto;
+    width: 850px;
+    font-family: sans-serif;
+}
+
+hr
+{
+    color: rgb(109, 109, 109);
+    background-color: rgb(109, 109, 109); 
+    height: 2px;
+    width: 96%
+}
+
+nav ul
+{
+    list-style: none;
+    text-align: center;
+}
+
+nav li
+{
+    display: inline-block;
+}
+
+nav a 
+{
+    padding: 0 0;
+    color: #1DB7F1;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+article, section 
+{ 
+    border: 2px solid #444; 
+}
+
+article 
+{
+    float: left;
+    position: relative;
+    overflow: hidden;
+    padding: 15px 0 3px 0;
+    width: 630px;
+}
+
+article section 
+{
+    float: left;
+    margin: 0 0 10px 10px;
+    padding: 10px 15px;
+    width: 265px;
+}
+
+article h2 
+{
+    font-size: 18px;
+    float: left;
+    margin-top: -22px;
+    padding: 0 7px;
+    background: #fff;
+}
+
+article ul 
+{
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+article li 
+{
+    margin-bottom: 10px;
+}
+
+.aside-block
+{
+    padding: 0;
+    margin: 0;
+}
+
+.menu-block
+{
+    
+    float: left;
+    width: 180px;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.menu-block:first-child
+{
+    margin-top: 100px;
+}
+
+.right-label
+{
+    margin-left: 15px;
+}
+
+.slider
+{
+    margin-top: 10px;
+    margin-left: 7px;
+    width: 135px;
+}
