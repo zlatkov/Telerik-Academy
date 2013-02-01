@@ -5,20 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace EmailExtractor
+namespace ReplaceHtmlTagsWithURL
 {
-    class EmailExtractor
+    class ReplaceHtmlTagsWithURL
     {
         static void Main(string[] args)
         {
             string text = Console.ReadLine();
-
-            MatchCollection emails = Regex.Matches(text, @"[a-z0-9._-]{6,}@\w+\.[a-z.]{2,}");
-
-            foreach (Match email in emails)
-            {
-                Console.WriteLine(email.Value);
-            }
+            string result = Regex.Replace(text, @"<\s*a\s*href\s*=\s*""(.*?)""\s*>\s*\b(.*?)\b\s*<\s*/a\s*>", "[URL=$1]$2[/URL]");
+            Console.WriteLine(result);
         }
     }
 }
