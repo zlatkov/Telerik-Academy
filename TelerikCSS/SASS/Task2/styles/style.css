@@ -1,0 +1,44 @@
+body, div, nav, ul, li, input, img, label, form {
+  margin: 0;
+  padding: 0; }
+
+body {
+  padding: 10px 10px; }
+  body nav ul {
+    list-style: none; }
+    body nav ul li {
+      display: inline-block; }
+      body nav ul li .thumbnail {
+        width: 160px;
+        height: 100px;
+        -webkit-transition: opacity 1s linear;
+        -moz-transition: opacity 1s linear;
+        -o-transition: opacity 1s linear;
+        transition: opacity 1s linear;
+        border: solid 1px black;
+        border-radius: 5px; }
+        body nav ul li .thumbnail:hover {
+          opacity: 0.6;
+          -webkit-transition: opacity 0.4s linear;
+          -moz-transition: opacity 0.4s linear;
+          -o-transition: opacity 0.4s linear;
+          transition: opacity 0.4s linear; }
+  body .image-panel {
+    padding: 10px 100px; }
+    body .image-panel input[type="radio"] {
+      display: none; }
+      body .image-panel input[type="radio"]:checked + img {
+        opacity: 1;
+        -webkit-transition: opacity 1.7s ease-out;
+        -moz-transition: opacity 1.7s ease-out;
+        -o-transition: opacity 1.7s ease-out;
+        transition: opacity 1.7s ease-out; }
+    body .image-panel .big-image {
+      width: 700px;
+      height: 450px;
+      opacity: 0;
+      display: inline-block;
+      position: absolute;
+      border: solid 1px black;
+      border-radius: 3px; }
+

@@ -1,0 +1,82 @@
+@mixin add-border($color, $width, $radius)
+{
+	border: solid $width $color;
+	border-radius: $radius;
+}
+
+@mixin add-animation($speed, $timing)
+{
+
+   -webkit-transition: opacity $speed $timing;
+   -moz-transition: opacity $speed $timing;
+   -o-transition: opacity $speed $timing;
+   transition: opacity $speed $timing;
+}
+
+body, div, nav, ul, li, input, img, label, form
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	padding: 10px 10px;
+	nav
+	{
+		
+		ul
+		{
+			list-style: none;
+			li
+			{
+				display: inline-block;
+				.thumbnail
+				{
+					width: 160px;
+					height: 100px;
+
+					
+					@include add-animation(1s, linear);
+					@include add-border(black, 1px, 5px);
+
+					&:hover
+					{
+						opacity: 0.6;
+						@include add-animation(0.4s, linear);
+					}
+
+					&:active
+					{
+					}
+				}
+			}
+		}
+	}
+
+	.image-panel
+	{
+		padding: 10px 100px;
+
+		input[type="radio"]
+		{
+			display: none;
+
+			&:checked + img
+			{
+				opacity: 1;
+				@include add-animation(1.7s, ease-out);
+			}
+		}
+		.big-image
+		{
+			width: 700px;
+			height: 450px;
+			opacity: 0;
+			display: inline-block;
+			position: absolute;
+
+			@include add-border(black, 1px, 3px);
+		}
+	}
+}

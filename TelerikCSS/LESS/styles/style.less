@@ -1,0 +1,325 @@
+.linear-gradient(@from-color, @mid-color ,@end-color)
+{
+	background: -webkit-linear-gradient(@from-color 0, @mid-color 165px, @end-color 100%) fixed;
+    background: -moz-linear-gradient(@from-color 0, @mid-color 165px, @end-color 100%) fixed;
+    background: -o-linear-gradient(@from-color 0, @mid-color 165px, @end-color 100%) fixed;
+    background: linear-gradient(@from-color 0, @mid-color 165px, @end-color 100%) fixed;
+}
+
+.clearfix()
+{
+	&:after
+	{
+		content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+		clear: both;
+	}
+}
+
+body, header, section, footer, article, h1, h2, h3, h4, h5, h6, input, button, label, p, fieldset, nav, ul, li, a, span, strong, em {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+div, h1, h3, h4, h5, h6, header, footer, body, section, nav, article, aside {
+    display: block;
+}
+
+body {
+	background: #9215f2;
+	.linear-gradient(#D593FF, #8F19EF, #9215f2);
+
+    font: 14px normal Arial;
+    color: white;
+    background-color: #9216f2;
+
+
+    header 
+	{
+		padding: 25px 15px 5px 15px;
+
+		div#header-container
+		{
+			.clearfix();
+			 div#logo-container 
+			 {
+				float: left;
+				position: relative;
+			}
+			div#reg-form-container 
+			{
+				float: right;
+				position: relative;
+				right: 5%;
+				top: 50%;
+
+				div 
+				{
+					text-align: right;
+
+					label 
+					{
+						width: 50px;
+						margin: 5px;
+					}
+
+					input 
+					{
+						width: 130px;
+						border: 1px solid #603382;
+						border-radius: 10px;
+						padding: 2px 5px;
+						margin: 5px;
+						background-color: rgb(179, 94, 243);
+					}
+				}
+
+				button 
+				{
+					margin-left: auto;
+					margin-right: auto;
+					font-weight: bold;
+					border: 1px solid #603382;
+					border-style: outset;
+					border-radius: 10px;
+					padding: 5px 8px;
+					background-color: #b35ef3;
+					color: white;
+
+
+					border-top-color: rgb(192, 175, 206);
+					border-left-color: rgb(192, 175, 206);
+
+					&:hover
+					{
+						background-color: #8949b9;
+						border-style: inset;
+					}
+				}	
+			}
+        }
+		
+		nav 
+		{
+			.clearfix();
+			display: inline-block;
+			width: 75%;
+			margin: 20px 20px 20px 20px;
+			padding: 12px;
+			border: 1px solid #000;
+			border-radius: 15px;
+
+			ul.nav-list 
+			{
+				list-style-type: none;
+			}
+
+			ul
+			{
+				.clearfix();
+				li
+				{
+					float: left;
+					margin: 0;
+
+					a 
+					{
+						text-decoration: none;
+						padding: 0 10px 0 10px;
+						color: white;
+						font: 1.4em normal Arial;
+
+						&.selected
+						{
+							font-weight: bold;
+						}
+					}
+
+					&:hover
+					{
+						& > a
+						{
+							text-decoration: underline;
+							color: #a8a8a8;
+
+							& + ul
+							{
+								display: block;
+							}
+						}
+					}
+
+					ul.sub-nav-list
+					{
+						.clearfix();
+						position: absolute;
+						display: none;
+						background-color: rgba(179, 94, 243, 0.9);
+						border-radius: 5px;
+					}
+
+					ul
+					{
+						li
+						{
+							float: none;
+							margin: 0 15px;
+							padding: 10px 0;
+							border-bottom: 1px solid black;
+
+							&:last-of-type
+							{
+								border-bottom: none;
+							}
+
+							& > a
+							{
+								font-size: 1.2em;
+								color: #fff;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+    section 
+	{
+		.clearfix();
+        width: 75%;
+        float: left;
+        color: black;
+
+		article 
+		{
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 15px;
+            color: white;
+
+			header 
+			{
+                background: none;
+                padding: 5px;
+
+				h1 
+				{
+                    font-size: 1.4em;
+                    padding: 0;
+                }
+            }
+
+			footer 
+			{
+                padding: 5px;
+
+				p 
+				{
+                    font-size: 16px;
+                    text-align: right;
+                    font-weight: normal;
+
+					time 
+					{
+                        font-family: Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+                    }
+
+					a 
+					{
+                        text-decoration: none;
+                        color: #aaaaaa;
+
+						&:hover 
+						{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    aside 
+	{
+		.clearfix();
+        float: left;
+        width: 20%;
+        margin: 20px;
+
+		& > ul
+		{
+            list-style-type: none;
+
+			& > li
+			{
+				margin: 15px 0;
+                padding: 15px;
+                border: 1px solid black;
+                border-radius: 5px;
+
+				h2 
+				{
+                    font-size: 1.1em;
+                    font-weight: bold;
+                }
+
+				p 
+				{
+                    margin-top: 10px;
+                    margin-right: 5px;
+                    margin-bottom: 10px;
+                    margin-left: 5px;
+                    font-size: 14px;
+					a 
+					{
+                        color: #aaaaaa;
+                        text-decoration: none;
+                    }
+					strong 
+					{
+                        color: #cccccc;
+                        font-weight: bold;
+                        font-style: normal;
+                    }
+					em
+					{
+                        color: #cccccc;
+                        font-weight: normal;
+                        font-style: italic;
+                    }
+                }
+				ul 
+				{
+					list-style-type: none;
+					margin: 10px 0 10px 0;
+
+					li 
+					{
+						margin: 5px 0 0 10px;
+                        background: url(images/li-dot.png) no-repeat;
+                        background-position: 0 50%;
+                        padding-left: 25px;
+                    }
+				}
+			}
+		}	
+    }
+    footer 
+	{
+        clear: both;
+		padding: 15px 0 25px 0;
+
+		p 
+		{
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+}

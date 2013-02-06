@@ -34,7 +34,7 @@ namespace _3DMaxWalk
             string[] dim = firstLine.Split(' ');
 
 
-
+       
             int width = int.Parse(dim[0]);
             int height = int.Parse(dim[1]);
             int depth = int.Parse(dim[2]);
