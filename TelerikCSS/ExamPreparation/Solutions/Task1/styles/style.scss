@@ -1,0 +1,125 @@
+body, nav, ul, li, header, a
+{
+	padding: 0;
+	margin: 0;
+}
+
+@mixin linear-gradient($color-from, $color-to)
+{
+	background: $color-from; /* Old browsers */
+	background: -moz-linear-gradient(top,  v 0%, $color-to 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color-from), color-stop(100%,$color-to)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  $color-from 0%,$color-to 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  $color-from 0%,$color-to 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  $color-from 0%,$color-to 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  $color-from 0%,$color-to 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-from', endColorstr='$color-to',GradientType=0 ); /* IE6-9 */
+}
+
+body
+{
+	
+	
+}
+
+a
+{
+	color: black;
+	text-decoration: none;
+}
+
+$selected-background-color: rgb(34, 79, 101);
+$hover-background-color: rgb(10, 82, 119);
+
+nav
+{
+	& > ul
+	{
+		@include linear-gradient(#04334b,rgb(119, 209, 255));
+		width: 860px;
+		height: 100px;
+		padding: 50px 50px;
+
+		li:hover
+		{
+			@include linear-gradient(rgba(8, 80, 117, 0.6), rgba(16, 91, 129, 0.6));
+			border-radius: 15px;
+		}
+	}
+	ul
+	{
+		font-family: sans-serif;
+		font-size: 32px;
+		padding-left: 50px;
+
+
+		list-style: none;
+		position: relative;
+
+		& > li
+		{
+			display: inline-block;
+			padding: 5px 10px;
+
+			&.selected
+			{
+				@include linear-gradient(rgb(20, 60, 80), rgb(39, 86, 110));
+				border-radius: 15px;
+			}
+
+			&.selected > ul
+			{
+				display: block;
+				position: absolute;
+				left: 0;
+				
+
+				& > li:hover > ul
+				{
+					display: block;
+					position: absolute;
+
+					padding: 20px 29px;
+					padding-right: 28px;
+
+					border-radius: 15px;
+					margin-left: -10px;
+
+					@include linear-gradient(rgb(255, 255, 255), rgb(119, 209, 255));
+
+					& > li
+					{
+						padding: 0; 
+						padding-bottom: 5px;
+
+						padding-left: 5px;
+						padding-right: 5px;
+
+						margin-top: 5px;
+
+						display: block;
+						border-bottom: 1px solid black;
+					}	
+
+					& > li:first-child
+					{
+						margin-top: 0;
+					}
+
+					& > li:last-child
+					{
+						border-bottom: none;
+						margin-bottom: 0;
+						padding-bottom: 0;
+					}
+				}
+			}
+
+			& > ul
+			{
+				display: none;
+			}
+		}
+
+	}
+}

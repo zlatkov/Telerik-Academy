@@ -1,0 +1,147 @@
+﻿body, div, h1, ul, li, p, span, button, input
+{
+	margin: 0;
+	padding: 0;
+}
+
+body 
+{
+	font-family: Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
+	font-size: 16px
+}
+
+ul
+{
+	list-style: none;
+}
+
+.linear-gradient(@top-color, @botom-color)
+{
+	background: @top-color; /* Old browsers */
+	background: -moz-linear-gradient(top,  @top-color 0%, @botom-color 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@top-color), color-stop(100%,@botom-color)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  @top-color 0%,@botom-color 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  @top-color 0%,@botom-color 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  @top-color 0%,@botom-color 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  @top-color 0%,@botom-color 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@top-color', endColorstr='@botom-color',GradientType=0 ); /* IE6-9 */
+}
+
+#wrapper
+{
+    width: 960px;
+    padding: 30px 30px;
+
+    & > div
+    {
+        border: 1px solid black;
+        border-radius: 15px;
+        width: 380px;
+        height: 463px;
+        position: relative;
+        .linear-gradient(#eeeeee, #aaaaaa);
+
+        & > h1
+        {
+            color: rgb(85, 85,85);
+            font-size: 29px;
+            margin-top: 15px;
+            margin-left: 22px;
+            margin-bottom: 10px;
+        }
+
+        & > ul
+        {
+            & > li
+            {
+                padding: 5px 15px 5px 15px;
+                border: 1px solid black;
+                border-radius: 15px;
+                width: 200px;
+                margin-top: 5px;
+
+                p
+                {
+                    color: rgb(92, 85, 85);
+                }
+
+                .date
+                {
+                    font-family: Consolas;
+                    display: block;
+                    font-size: 12px;
+                    text-align: right;
+                    margin-top: 1px;
+                    color: rgb(85, 85, 87);
+                }
+            }
+
+            .me-item
+            {
+                margin-left: 133px;
+                .linear-gradient(rgb(43, 237, 255), rgb(192, 250, 255));
+
+                span:first-of-type
+                {
+                    font-weight: bold;
+                    font-size: 18px;
+                    color: rgb(85,85,85);
+                }
+            }
+
+            .toshko-item
+            {
+                margin-left: 15px;
+                .linear-gradient(rgb(221, 255, 208), rgb(111, 255, 59));
+
+                .date
+                {
+                    text-align: left;
+                }
+
+                span:first-of-type
+                {
+                    font-weight: bold;
+                    font-size: 18px;
+                    color: rgb(85,85,85);
+                    display: block;
+                    text-align: right;
+                }
+            }
+        }
+
+        input
+        {
+            display: inline-block;
+            border-radius: 7px;
+            height: 35px;
+            width: 260px;
+            margin-left: 13px;
+            margin-right: 0;
+			margin-top: 5px;
+            background-color: rgb(238, 238, 238);
+            border: 2px solid rgb(176, 176, 176);
+            outline: none;
+            padding-left: 15px;
+            font-size: 13px;
+            color: rgb(85, 85, 85);
+        }
+
+        button
+        {
+            .linear-gradient(rgb(237, 237, 237), rgb(177, 177, 177));
+            margin-left: -2px;
+            height: 28px;
+            width: 69px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+
+            &:hover
+            {
+				
+            .linear-gradient(rgb(238, 238, 238), rgb(238, 238, 238));
+            }
+        }
+    }
+}

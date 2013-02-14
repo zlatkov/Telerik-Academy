@@ -1,0 +1,104 @@
+﻿body, fieldset, form, div
+{
+	margin: 0;
+	padding: 0;
+}
+
+a
+{
+    font-size: 19px;
+    text-decoration: none;
+    color: black;
+
+    &.current
+    {
+        font-weight: bold;
+    }
+}
+
+.invisible
+{
+	display: none;
+}
+
+.linear-gradient(@begin-position, @from-color, @to-color)
+{
+	background: #000000; /* Old browsers */
+	background: -moz-linear-gradient(@begin-position,  @from-color 0%, @to-color 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left @begin-position, left bottom, color-stop(0%,@from-color), color-stop(100%,@to-color)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(@begin-position,  @from-color 0%,@to-color 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(@begin-position,  @from-color 0%,@to-color 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(@begin-position,  @from-color 0%,@to-color 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  @from-color 0%,@to-color 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@from-color', endColorstr='#c4c4c4',GradientType=0 ); /* IE6-9 */
+
+}
+
+#wrapper
+{	
+	font-size: 16px;
+	font-family: Verdana, Geneva, 'DejaVu Sans', sans-serif;
+	padding: 0 50px;
+}
+
+#form-register
+{
+    font-weight: bold;
+    width: 450px;
+
+
+    fieldset
+    {
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        height: 209px;
+        padding-top: 10px;
+        padding-right: 73px;
+        border: 5px solid black;
+        .linear-gradient(3%, #ffffff, rgb(89, 89, 89));
+        text-align: right;
+
+        legend
+        {
+            background-color: white;
+            margin-bottom: -2px;
+            font-size: 27px;
+            font-weight: bold;
+            font-style: italic;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        label
+        {
+        }
+
+
+        input
+        {
+            margin-top: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 15px;
+            .linear-gradient(top, #000000, #c4c4c4);
+            right: 30px;
+
+            &:focus
+            {
+                color: white;
+                outline: none;
+            }
+        }
+
+        button
+        {
+            margin-top: 8px;
+            font-size: 20px;
+            padding: 5px 10px;
+            border: 2px solid black;
+            border-radius: 16px;
+            .linear-gradient(top, #000000, #ffffff);
+        }
+    }
+}
+
