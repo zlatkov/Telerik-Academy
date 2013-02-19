@@ -87,7 +87,7 @@ namespace FallingRocks
 
         private static void GenerateNewRocks()
         {
-            //75% change of generating ne rock and the number of rocks doens't exceed the maximum value.
+            //75% change of generating new rock and the number of rocks doens't exceed the maximum value.
             if (random.Next(0, 4) != 0 && rocks.Count() < MaximumNumberOfRocks)
             {
                 //33% chance of generating new cluster.
