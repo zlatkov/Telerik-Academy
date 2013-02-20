@@ -94,13 +94,6 @@ namespace _12.GSMCallHistoryTest
             {
                 return callHistory;
             }
-            set
-            {
-                if (value != null)
-                {
-                    callHistory = value;
-                }
-            }
         }
 
         public void AddCall(Call call)
