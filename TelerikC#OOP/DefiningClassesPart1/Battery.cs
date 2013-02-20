@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace _12.GSMCallHistoryTest
 {
-    public enum BatteryType : byte { LiLon, NiMH, NiCd };
-
     public class Battery
     {
         private string model;
