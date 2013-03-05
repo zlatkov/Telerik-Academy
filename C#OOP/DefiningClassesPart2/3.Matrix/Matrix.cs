@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.CSharp.RuntimeBinder;
 
 namespace _3.Matrix
 {
@@ -67,13 +68,20 @@ namespace _3.Matrix
             Matrix<T> result = new Matrix<T>(a.Rows, a.Cols);
             dynamic tmp;
 
-            for (int i = 0; i < a.Rows; ++i)
+            try
             {
-                for (int j = 0; j < a.Cols; ++j)
+                for (int i = 0; i < a.Rows; ++i)
                 {
-                    tmp = a[i, j];
-                    result[i, j] = -tmp;
+                    for (int j = 0; j < a.Cols; ++j)
+                    {
+                        tmp = a[i, j];
+                        result[i, j] = -tmp;
+                    }
                 }
+            }
+            catch (RuntimeBinderException)
+            {
+                Console.WriteLine("The operator '-' is not implemented for the chosen data type.");
             }
             return result;
         }
@@ -82,23 +90,30 @@ namespace _3.Matrix
         {
             if (a.Rows != b.Rows || a.Cols != b.Cols)
             {
-                throw new ArgumentException("The matrix you are  trying to add have difference dimensions");
+                throw new ArgumentException("The matrix you are trying to add have difference dimensions");
             }
             else
             {
                 Matrix<T> result = new Matrix<T>(a.Rows, a.Cols);
                 dynamic tmp1;
                 dynamic tmp2;
-
-                for (int i = 0; i < a.Rows; ++i)
+                try
                 {
-                    for (int j = 0; j < a.Cols; ++j)
+                    for (int i = 0; i < a.Rows; ++i)
                     {
-                        tmp1 = a[i, j];
-                        tmp2 = b[i, j];
+                        for (int j = 0; j < a.Cols; ++j)
+                        {
+                            tmp1 = a[i, j];
+                            tmp2 = b[i, j];
 
-                        result[i, j] = tmp1 + tmp2;
+                            result[i, j] = tmp1 + tmp2;
+                        }
                     }
+                }
+                catch (RuntimeBinderException)
+                {
+
+                    Console.WriteLine("The operator '+' is not implemented for the chosen data type.");
                 }
                 return result;
             }
@@ -117,24 +132,32 @@ namespace _3.Matrix
             }
             else
             {
+                
                 Matrix<T> result = new Matrix<T>(a.Rows, b.Cols);
                 dynamic tmp1;
                 dynamic tmp2;
                 dynamic tmp3;
-
-                for (int i = 0; i < a.Rows; ++i)
+                
+                try
                 {
-                    for (int j = 0; j < b.Cols; ++j)
+                    for (int i = 0; i < a.Rows; ++i)
                     {
-                        for (int k = 0; k < b.Rows; ++k)
+                        for (int j = 0; j < b.Cols; ++j)
                         {
-                            tmp1 = a[i, k];
-                            tmp2 = b[k, j];
-                            tmp3 = result[i, j];
-                            tmp3 += tmp1 * tmp2;
-                            result[i, j] = tmp3;
+                            for (int k = 0; k < b.Rows; ++k)
+                            {
+                                tmp1 = a[i, k];
+                                tmp2 = b[k, j];
+                                tmp3 = result[i, j];
+                                tmp3 += tmp1 * tmp2;
+                                result[i, j] = tmp3;
+                            }
                         }
                     }
+                }
+                catch (RuntimeBinderException)
+                {
+                    Console.WriteLine("The operator '*' is not implemented for the chosen data type.");
                 }
 
                 return result;
