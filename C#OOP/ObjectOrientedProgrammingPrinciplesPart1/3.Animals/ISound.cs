@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace School
+namespace _3.Animals
 {
-    class Program
+    public interface ISound
     {
-        static void Main(string[] args)
-        {
-        }
+        void ProduceSound();
     }
 }

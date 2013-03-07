@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectOrientedProgrammingPrinciplesPart1", "ObjectOrientedProgrammingPrinciplesPart1\ObjectOrientedProgrammingPrinciplesPart1.csproj", "{A95488B0-C970-489C-A357-1F38F96DD277}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.School", "1.School\1.School.csproj", "{C9C6091E-907C-4EFB-9FC2-DDD243ED8E78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.HumanStudentWorker", "2.HumanStudentWorker\2.HumanStudentWorker.csproj", "{D691F686-F049-4BDF-9A9C-EABA241EADAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.Animals", "3.Animals\3.Animals.csproj", "{4F85D623-92FF-4BEC-B821-8396E32E8DF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A95488B0-C970-489C-A357-1F38F96DD277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A95488B0-C970-489C-A357-1F38F96DD277}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A95488B0-C970-489C-A357-1F38F96DD277}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A95488B0-C970-489C-A357-1F38F96DD277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C6091E-907C-4EFB-9FC2-DDD243ED8E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C6091E-907C-4EFB-9FC2-DDD243ED8E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C6091E-907C-4EFB-9FC2-DDD243ED8E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C6091E-907C-4EFB-9FC2-DDD243ED8E78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D691F686-F049-4BDF-9A9C-EABA241EADAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D691F686-F049-4BDF-9A9C-EABA241EADAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D691F686-F049-4BDF-9A9C-EABA241EADAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D691F686-F049-4BDF-9A9C-EABA241EADAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F85D623-92FF-4BEC-B821-8396E32E8DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F85D623-92FF-4BEC-B821-8396E32E8DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F85D623-92FF-4BEC-B821-8396E32E8DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F85D623-92FF-4BEC-B821-8396E32E8DF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
