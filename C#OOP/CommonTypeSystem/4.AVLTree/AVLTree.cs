@@ -15,6 +15,9 @@ namespace _4.AVLTree
             this.root = null;
         }
 
+        /// <summary>
+        /// Tree indexer.
+        /// </summary>
         public TValue this[TKey key]
         {
             set
