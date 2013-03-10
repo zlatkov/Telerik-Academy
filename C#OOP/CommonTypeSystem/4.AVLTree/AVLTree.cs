@@ -684,7 +684,7 @@ namespace _4.AVLTree
         }
 
         /// <summary>
-        ///Just XOR's all hash codes of the nodes using pre-order traversal.
+        ///Just XORs all hash codes of the nodes using pre-order traversal.
         /// </summary>
         public override int GetHashCode()
         {
