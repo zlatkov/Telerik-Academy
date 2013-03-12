@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5.SortStudentsFirstNameLast
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.FilterDivisibleBy3And7", "6.FilterDivisibleBy3And7\6.FilterDivisibleBy3And7.csproj", "{B24BCD8D-DDF8-475B-BFF2-483A83E8CA49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.CapitalizeWordFirstLetter", "7.CapitalizeWordFirstLetter\7.CapitalizeWordFirstLetter.csproj", "{F7BEB877-F14F-44A0-8556-5C62B511C876}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.Timer", "7.Timer\7.Timer.csproj", "{F7BEB877-F14F-44A0-8556-5C62B511C876}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.TimerEvents", "8.TimerEvents\8.TimerEvents.csproj", "{B1790EBF-A08E-4562-86B0-8EB2134FF54A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{F7BEB877-F14F-44A0-8556-5C62B511C876}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7BEB877-F14F-44A0-8556-5C62B511C876}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7BEB877-F14F-44A0-8556-5C62B511C876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1790EBF-A08E-4562-86B0-8EB2134FF54A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1790EBF-A08E-4562-86B0-8EB2134FF54A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1790EBF-A08E-4562-86B0-8EB2134FF54A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1790EBF-A08E-4562-86B0-8EB2134FF54A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
