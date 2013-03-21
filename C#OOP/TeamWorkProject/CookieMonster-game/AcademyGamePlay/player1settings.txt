@@ -1,0 +1,5 @@
+﻿moveLeftKey A
+moveUpKey W
+moveRightKey D
+moveDownKey S
+actionKey Z
