@@ -7,14 +7,14 @@
         <p id="second-paragraph"></p>
         <script type="text/javascript">
 
-            function replaceNonBreakingWhitespace(text, newValue) {
+            function replaceNonBreakingWhitespaces(text, newValue) {
                 return text.split('&nbsp;').join(newValue);
             }
 
             document.getElementById('first-paragraph').innerHTML = 'Some&nbsp;random&nbsp;text to displaaaaay.';
             var text = document.getElementById('first-paragraph').innerHTML;
 
-            document.getElementById('second-paragraph').innerHTML = replaceNonBreakingWhitespace(text, '&amp;nbsp;');
+            document.getElementById('second-paragraph').innerHTML = replaceNonBreakingWhitespaces(text, '&amp;nbsp;');
 
         </script>
     </body>
