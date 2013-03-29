@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var i, number;
+            for (i = 0; i < 10; ++i) {
+                number = parseInt(Math.random() * 100000);
+                console.log('The number ' + number + ' has reversed digits ' + reverseDigits(number));
+            }
+
+            function reverseDigits(number) {
+                var numberIsNegative = false;
+                if (number < 0) {
+                    numberIsNegative = true;
+                    number = -number;
+                }
+
+                var reversedNumber = 0;
+                while (number > 0) {
+                    reversedNumber = reversedNumber * 10 + number % 10;
+                    number /= 10;
+                    number = parseInt(number);
+                }
+
+                if (numberIsNegative) {
+                    reversedNumber = -reversedNumber;
+                }
+
+                return reversedNumber;
+            }
+            
+        </script>
+    </body>
+</html>

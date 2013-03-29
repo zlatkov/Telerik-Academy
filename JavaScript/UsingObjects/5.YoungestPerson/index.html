@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            function createPerson(firstName, lastName, age) {
+                return {
+                    firstName: firstName,
+                    lastName: lastName,
+                    age: age,
+                    toString: function() { 
+                        return this.firstName + ' ' + this.lastName + ' age: ' + this.age;
+                    }
+                };
+            }
+
+            function findYoungestPerson(people) {
+                if (people.length > 0) {
+                    var smallestAgeIndex = 0, i;
+                    for (i = 1; i < people.length; ++i) {
+                        if (people[i].age < people[smallestAgeIndex].age) {
+                            smallestAgeIndex = i;
+                        }
+                    }
+
+                    console.log(people[smallestAgeIndex].toString());
+                }
+            }
+
+            var people = [
+                createPerson("firstName1", "lastName1", 43),
+                createPerson("firstName2", "lastName2", 63),
+                createPerson("firstName3", "lastName3", 10),
+                createPerson("firstName4", "lastName4", 18)
+            ];
+
+            findYoungestPerson(people);
+
+        </script>
+    </body>
+</html>

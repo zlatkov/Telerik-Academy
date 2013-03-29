@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var numbersArray = [0, 1, 2, 3, 4, 5, 6, 432, 329, 920, 1, 0, 3, 45, 9324, 432, 3, 34, 3, 599, 19, 3, 5];
+            
+            console.log('For the array [' + numbersArray + '] the first number bigger than its neihbours has index ' + firstNumberBiggerThanNeighbours(numbersArray));
+
+            
+            function firstNumberBiggerThanNeighbours(numbersArray) {
+                var i;
+                for (i = 0; i < numbersArray.length; ++i) {
+                    if (biggerThanNeighbours(numbersArray, i)) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+
+            function biggerThanNeighbours(numbersArray, numberPosition) {
+                if (numberPosition < 0) {
+                    return false;
+                }
+                else if (numberPosition >= numbersArray.length) {
+                    return false;
+                }
+
+                if (numberPosition > 0 && numbersArray[numberPosition - 1] > numbersArray[numberPosition]) {
+                    return false;
+                }
+
+                if (numberPosition < numbersArray.length - 1 && numbersArray[numberPosition + 1] > numbersArray[numberPosition]) {
+                    return false;
+                }
+                return true;
+            }
+
+        </script>
+    </body>
+</html>

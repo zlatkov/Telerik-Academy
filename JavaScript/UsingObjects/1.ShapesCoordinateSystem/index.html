@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            
+            function getPoint(x, y) {
+                return {
+                    x: x,
+                    y: y
+                };
+            }
+
+            function getLine(pointA, pointB) {
+                return {
+                    pointA: pointA,
+                    pointB: pointB
+                };
+            }
+
+            function getDistance(pointA, pointB) {
+                return Math.sqrt(Math.pow(pointA.x - pointB.x, 2) + Math.pow(pointA.y - pointB.y, 2));
+            }
+
+            function canFormTriangle(lineA, lineB, lineC) {
+
+                if ((getDistance(lineA.pointA, lineA.pointB) + getDistance(lineB.pointA, lineB.pointB) > getDistance(lineC.pointA, lineC.pointB))
+                    || (getDistance(lineB.pointA, lineB.pointB) + getDistance(lineC.pointA, lineC.pointB) > getDistance(lineA.pointA, lineA.pointB))
+                    || (getDistance(lineA.pointA, lineA.pointB) + getDistance(lineC.pointA, lineC.pointB) > getDistance(lineB.pointA, lineB.pointB)) )
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            var line1 = getLine(getPoint(0, 0), getPoint(10, 0));
+            var line2 = getLine(getPoint(0, 0), getPoint(0, 10));
+            var line3 = getLine(getPoint(0, 10), getPoint(10, 0));
+
+            console.log(canFormTriangle(line1, line2, line3));
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var i, number;
+            for (i = 0; i < 10; ++i) {
+                number = parseInt(Math.random() * 100000);
+                console.log('The number ' + number + ' has last digit: ' + tellLastDigit(number));
+            }
+
+            function tellLastDigit(number) {
+                var lastDigit = Math.abs(number % 10);
+                switch (lastDigit) {
+                    case 0: return 'zero';
+                    case 1: return 'one';
+                    case 2: return 'two';
+                    case 3: return 'three';
+                    case 4: return 'four';
+                    case 5: return 'five';
+                    case 6: return 'six';
+                    case 7: return 'seven';
+                    case 8: return 'eight';
+                    case 9: return 'nine';
+                    default: return 'Invalid digit.';
+                }
+            }
+        </script>
+    </body>
+</html>

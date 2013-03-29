@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            function removeAdditionalWhiteSpaces(text) {
+                return text.replace(/\s{2,}/ig, ' ');
+            }
+
+            function removeAllTags(text) {
+                return text.replace(/<.+?case>/ig, '');
+            }
+            
+            function applyTags(text, openTagName, closeTagName, action) {
+                var openTagIndexes = [];
+
+                var lastOccurance = text.indexOf(openTagName), nextOpenTagIndex, nextCloseTagIndex, originalBlock, updateBlock;
+                if (lastOccurance > -1) {
+                    openTagIndexes.push(lastOccurance);
+                }
+
+                while(openTagIndexes.length > 0) {
+             
+                    lastOccurance = openTagIndexes[openTagIndexes.length - 1]; 
+                    nextOpenTagIndex = text.indexOf(openTagName, lastOccurance + openTagName.length);
+                    nextCloseTagIndex = text.indexOf(closeTagName, lastOccurance + openTagName.length);
+
+                    if (nextCloseTagIndex < nextOpenTagIndex || nextOpenTagIndex === -1) {
+                        originalBlock = text.substring(lastOccurance, nextCloseTagIndex + closeTagName.length);
+                        updateBlock = removeAllTags(originalBlock);
+                        updateBlock = removeAdditionalWhiteSpaces(updateBlock);
+                        updateBlock = action(updateBlock);
+
+
+                        text = text.replace(originalBlock, updateBlock);
+                        openTagIndexes.pop();
+
+                    }
+                    else {
+                        openTagIndexes.push(nextOpenTagIndex);
+                    }
+                }
+
+                text = removeAdditionalWhiteSpaces(text);
+                return text;
+            }
+
+            function applyUpCaseTags(text) {
+                return text.toUpperCase();
+            }
+
+            function applyLowCaseTags(text) {
+                return text.toLowerCase();
+            }
+
+            function applyMixCaseTags(text) {
+                var result = '', i, tmpRand;
+                for (i = 0; i < text.length; ++i) {
+                    tmpRand = parseInt(Math.random() * 2);
+                    if (tmpRand === 0) {
+                        result += text[i].toUpperCase();
+                    }
+                    else {
+                        result += text[i].toLowerCase();
+                    }
+                }
+                return result;
+            }
+
+            var text = "Some <upcase> random <upcase> text </upcase> to </upcase> test my <mixcase> freaking  <lowcase> <upcase> code! </upcase> </lowcase> </mixcase>";
+            text = applyTags(text, '<upcase>', '</upcase>', applyUpCaseTags);
+            text = applyTags(text, '<lowcase>', '</lowcase>', applyLowCaseTags);
+            text = applyTags(text, '<mixcase>', '</mixcase>', applyMixCaseTags);
+
+
+            console.log(text);
+
+        </script>
+    </body>
+</html>

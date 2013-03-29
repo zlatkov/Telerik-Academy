@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcademyRPG", "AcademyRPG\AcademyRPG.csproj", "{99ADD898-CD27-4348-B707-8A34D85A4A19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcademyRPGSingleFile", "AcademyRPGSingleFile\AcademyRPGSingleFile.csproj", "{3028AFEE-960B-42AF-98B7-9C7E1EDF9BFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99ADD898-CD27-4348-B707-8A34D85A4A19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99ADD898-CD27-4348-B707-8A34D85A4A19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99ADD898-CD27-4348-B707-8A34D85A4A19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99ADD898-CD27-4348-B707-8A34D85A4A19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3028AFEE-960B-42AF-98B7-9C7E1EDF9BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3028AFEE-960B-42AF-98B7-9C7E1EDF9BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3028AFEE-960B-42AF-98B7-9C7E1EDF9BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3028AFEE-960B-42AF-98B7-9C7E1EDF9BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

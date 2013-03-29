@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            function countOccurrences(text, word) {
+                text = text.toLowerCase();
+                word = word.toLowerCase();
+
+                var count = 0, lastFoundIndex = text.indexOf(word);
+                while (lastFoundIndex != -1) {
+                    ++count;
+                    lastFoundIndex = text.indexOf(word, lastFoundIndex + 1);
+                }
+
+                return count;
+            }
+
+
+            var text = 'We are living in an yellow submarine. We don\'t have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days';
+            var word = 'in';
+
+            console.log('Number of occurrences: ' + countOccurrences(text, word));
+
+        </script>
+    </body>
+</html>

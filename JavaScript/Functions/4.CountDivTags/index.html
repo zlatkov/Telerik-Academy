@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div>First Div</div>
+        <div>Second Div</div>
+        <div>Third Div</div>
+        <div>Foirth Div</div>
+        <div>Fifth Div</div>
+
+        <script type="text/javascript">
+            console.log('The number of divs on the page is: ' + countNumberOfDivs());
+
+            function countNumberOfDivs() {
+                return document.getElementsByTagName('div').length;
+            }
+        </script>
+    </body>
+</html>

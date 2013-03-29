@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            function hasProperty(obj, property) {
+                for (var i in obj) {
+                    if (i === property) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            var obj1 = {
+                    name: "name1",
+                    age: 43,
+                    sex: "female"
+                };
+
+            console.log(hasProperty(obj1, "name"));
+            console.log(hasProperty(obj1, "salary"));
+
+        </script>
+    </body>
+</html>

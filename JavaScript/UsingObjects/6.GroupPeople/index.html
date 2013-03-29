@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            function createPerson(firstName, lastName, age) {
+                return {
+                    firstName: firstName,
+                    lastName: lastName,
+                    age: age,
+                    toString: function () {
+                        return this.firstName + ' ' + this.lastName + ' age: ' + this.age;
+                    }
+                };
+            }
+
+            function group(people, property) {
+                var groups = {};
+                for (var i in people) {
+                    if (groups[people[i][property]] == null) {
+                        groups[people[i][property]] = [];
+                    }
+                    groups[people[i][property]].push(people[i]);
+                }
+
+                return groups;
+            }
+           
+            var people = [
+                createPerson("kiril", "todorov", 54),
+                createPerson("stefan", "todorov", 68),
+                createPerson("kiril", "yordanov", 79),
+                createPerson("valentin", "petkov", 79)
+            ];
+
+            var groupedFirstName = group(people, "firstName");
+            var groupedLastName = group(people, "lastName");
+            var groupedAge = group(people, "age");
+
+            console.log(groupedFirstName);
+            console.log(groupedLastName);
+            console.log(groupedAge);
+
+        </script>
+    </body>
+</html>

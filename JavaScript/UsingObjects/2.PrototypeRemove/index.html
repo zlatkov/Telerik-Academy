@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            Array.prototype.remove = function (element) {
+                var resultArr = [];
+                for (var i in this) {
+                    if (this[i] !== element) {
+                        resultArr.push(this[i]);
+                    }
+                }
+                return resultArr;
+            }
+            
+            var arr = [1, 2, 1, 4, 1, 3, 4, 1, 111, 3, 2, 1, "1"];
+            var result = arr.remove(1);
+
+            console.log(result);
+
+        </script>
+    </body>
+</html>

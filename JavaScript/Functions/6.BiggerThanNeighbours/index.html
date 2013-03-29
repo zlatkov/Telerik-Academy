@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var numbersArray = [432, 329, 920, 1, 0, 3, 45, 9324, 432, 3, 34, 3, 599, 19, 3, 5];
+            var i;
+
+            for (i = 0; i < numbersArray.length; ++i) {
+                console.log('biggerThanNeighbours for index ' + i + ' is ' + biggerThanNeighbours(numbersArray, i));
+            }
+
+
+            function biggerThanNeighbours(numbersArray, numberPosition) {
+                if (numberPosition < 0) {
+                    return false;
+                }
+                else if (numberPosition >= numbersArray.length) {
+                        return false;
+                }
+
+                    if (numberPosition > 0 && numbersArray[numberPosition - 1] > numbersArray[numberPosition]) {
+                        return false;
+                }
+
+                    if (numberPosition < numbersArray.length - 1 && numbersArray[numberPosition + 1] > numbersArray[numberPosition]) {
+                        return false;
+                }
+                    return true;
+            }
+           
+        </script>
+    </body>
+</html>

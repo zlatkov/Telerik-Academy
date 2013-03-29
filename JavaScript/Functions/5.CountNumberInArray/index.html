@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var numbersArray = [432, 329, 920, 1, 0, 3, 45, 9324, 432, 3, 34, 3, 599, 19, 3, 5];
+            var searchNumber = 3;
+
+            determineCorrectness();
+
+            console.log('The number ' + searchNumber + ' appears in [' + numbersArray + '] ' + countOccurances(numbersArray, searchNumber) + ' times.');
+
+            function countOccurances(numbersArray, searchNumber) {
+                var count = 0;
+                for (index in numbersArray) {
+                    if (numbersArray[index] == searchNumber) {
+                        count++;
+                    }
+                }
+
+                return count;
+            }
+
+            function determineCorrectness() {
+                console.assert(countOccurances(numbersArray, 1) == 1);
+                console.assert(countOccurances(numbersArray, 3) == 4);
+                console.assert(countOccurances(numbersArray, 432) == 2);
+                console.assert(countOccurances(numbersArray, 45) == 1);
+            }
+
+        </script>
+    </body>
+</html>

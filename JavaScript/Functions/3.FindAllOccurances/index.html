@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var text = 'A written language is the representation of a language by means of a writing system. Written Language is an invention in that it must be taught to Children; children will pick up spoken Language (oral or sign) by exposure without being specifically taught.';
+            var word = 'Language';
+
+            document.write('The text is: ' + '</br>' + text + '</br></br>');
+            document.write('The word is: ' + word);
+
+            console.log('Case insensitive search count: ' + countOccurances(text, word));
+            console.log('Case sensitive search count: ' + countOccurances(text, word, true));
+
+            function countOccurances(text, word, isCaseSensitive) {
+                isCaseSensitive = isCaseSensitive || false;
+
+                if (!isCaseSensitive) {
+                    text = text.toLowerCase();
+                    word = word.toLowerCase();
+                }
+
+                var startIndex = 0, occurances = 0;
+
+                while (startIndex < text.length) {
+                    startIndex = text.indexOf(word, startIndex);
+                    if (startIndex == -1) {
+                        break;
+                    }
+                    else {
+                        startIndex += word.length;
+                        occurances++;
+                    }
+                }
+
+                return occurances;
+            }
+
+
+        </script>
+    </body>
+</html>
