@@ -37,13 +37,17 @@
                         text = text.replace(originalBlock, updateBlock);
                         openTagIndexes.pop();
 
+                        if (nextOpenTagIndex !== -1 && openTagIndexes.length === 0) {
+                            openTagIndexes.push(text.indexOf(openTagName, lastOccurance + openTagName.length));
+                        }
+
                     }
                     else {
                         openTagIndexes.push(nextOpenTagIndex);
                     }
                 }
 
-                text = removeAdditionalWhiteSpaces(text);
+                text = removeAdditionalWhiteSpaces(text).trim();
                 return text;
             }
 
@@ -69,7 +73,7 @@
                 return result;
             }
 
-            var text = "Some <upcase> random <upcase> text </upcase> to </upcase> test my <mixcase> freaking  <lowcase> <upcase> code! </upcase> </lowcase> </mixcase>";
+            var text = "<lowcase> YEAH! </lowcase> Some <upcase> random <upcase> text </upcase> to </upcase> test my <mixcase> freaking  <lowcase> <upcase> code! </upcase> </lowcase> </mixcase>";
             text = applyTags(text, '<upcase>', '</upcase>', applyUpCaseTags);
             text = applyTags(text, '<lowcase>', '</lowcase>', applyLowCaseTags);
             text = applyTags(text, '<mixcase>', '</mixcase>', applyMixCaseTags);

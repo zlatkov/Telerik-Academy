@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function removeHTMLTags(htmlText) {
+                var inOpenTag = false, i, result = '';
+                for (i = 0; i < htmlText.length; ++i) {
+                    if (htmlText[i] === '<') {
+                        inOpenTag = true;
+                    }
+                    else if (htmlText[i] === '>') {
+                        inOpenTag = false;
+                    }
+                    else if (inOpenTag === false) {
+                        result += htmlText[i];
+                    }
+                }
+                return result;
+            }
+
+            var htmlText = '<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>';
+            console.log(removeHTMLTags(htmlText));
+
+        </script>
+    </body>
+</html>
