@@ -4,8 +4,25 @@
     </head>
     <body>
         <script type="text/javascript">
+
+            function createStringBuilder() {
+                return {
+                    elements: [],
+                    len: function () {
+                        return this.elements.length;
+                    },
+                    append: function(element) {
+                        this.elements.push(element);
+                    },
+                    toString: function() {
+                        return this.elements.join('');
+                    }
+                };
+            }
+
             function removeHTMLTags(htmlText) {
-                var inOpenTag = false, i, result = '';
+                var inOpenTag = false, i, result = createStringBuilder();
+
                 for (i = 0; i < htmlText.length; ++i) {
                     if (htmlText[i] === '<') {
                         inOpenTag = true;
@@ -14,10 +31,10 @@
                         inOpenTag = false;
                     }
                     else if (inOpenTag === false) {
-                        result += htmlText[i];
+                        result.append(htmlText[i]);
                     }
                 }
-                return result;
+                return result.toString();
             }
 
             var htmlText = '<html><head><title>Sample site</title></head><body><div>text<div>more text</div>and more...</div>in body</body></html>';

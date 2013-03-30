@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div data-type="template" id="list-item">
+        <strong>-{firstName}-</strong> <strong>-{lastName}-</strong> <span>-{age}-</span> <span>-{sex}-</span>
+    </div>
+
+    <div id="people-list"></div>
+
+    <script type="text/javascript">
+
+        function createStringBuilder() {
+            return {
+                elements: [],
+                len: function () {
+                    return this.elements.length;
+                },
+                append: function (element) {
+                    this.elements.push(element);
+                },
+                toString: function () {
+                    return this.elements.join('');
+                }
+            };
+        }
+
+        function createPerson(firstName, lastName, age, sex) {
+            return {
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                sex: sex
+            }
+        }
+
+        function generateList(people, template) {
+            var resultList = createStringBuilder(), i;
+            resultList.append('<ul>');
+
+            for (i = 0; i < people.length; ++i) {
+                resultList.append('<li>');
+                resultList.append(template.replace(/{(\w+)}/ig, function () { return people[i][arguments[1]]; }));
+                resultList.append('</li>');
+            }
+            resultList.append('</ul>');
+            return resultList.toString();
+        }
+
+        var people = [
+            createPerson('John', 'Nash', 84, 'male'),
+            createPerson('Donald', 'Knuth', 75, 'male'),
+            createPerson('Grace', 'Hopper', 85, 'female')
+        ];
+
+        var template = document.getElementById('list-item').innerHTML;
+        var peopleList = generateList(people, template);
+
+        document.getElementById('people-list').innerHTML = peopleList;
+        console.log(peopleList);
+
+    </script>
+</body>
+</html>

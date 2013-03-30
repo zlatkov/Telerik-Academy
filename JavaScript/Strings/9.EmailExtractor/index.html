@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var email = 'Some random email: someIdentifier1@someHost1.someDomain and one more random email someIdentifier2@someHost2.someOtherDomain';
+            var regEx = /[a-z0-9._-]{6,}@\w+\.[a-z.]{2,}/ig;
+            var result;
+            while ((result = regEx.exec(email)) !== null) {
+
+                console.log(result[0]);
+            }
+        </script>
+    </body>
+</html>

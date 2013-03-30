@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var args = [1, 'pesho', 'Gosho'];
+            var formatString = '{0}, {1}, {0} text {2}';
+            var text = formatString.replace(/{([0-9]+)}/ig, function () { return args[parseInt(arguments[1])]; });
+
+            console.log(text);
+
+
+        </script>
+    </body>
+</html>

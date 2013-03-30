@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            function createStringBuilder() {
+                return {
+                    elements: [],
+                    len: function () {
+                        return this.elements.length;
+                    },
+                    append: function (element) {
+                        this.elements.push(element);
+                    },
+                    toString: function () {
+                        return this.elements.join('');
+                    }
+                };
+            }
+
+            function reverseString(str) {
+                var result = createStringBuilder(), i;
+                for (i = str.length - 1; i >= 0; --i) {
+                    result.append(str[i]);
+                }
+                return result.toString();
+            }
+
+            function extractPalindromes(text) {
+                var result = [];
+                text = text.toLowerCase().replace('.', ' ').replace('?', ' ').replace('!', ' ').replace(',', ' ');
+                var words = text.split(' '), i;
+
+                for (i = 0; i < words.length; ++i) {
+                    if (words[i].length > 0 && words[i] === reverseString(words[i])) {
+                        result.push(words[i]);
+                    }
+                }
+                return result;
+            }
+
+            var text = 'Some ABBA! random exe test to, iggi test';
+            console.log(extractPalindromes(text));
+
+        </script>
+    </body>
+</html>

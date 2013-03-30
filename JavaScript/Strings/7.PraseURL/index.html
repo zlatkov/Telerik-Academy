@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            function parseURL(url) {
+                var regEx = /\s*([^\s]*):\/\/([^\s\/]*)(\/[^\s]*)/i;
+                var result = regEx.exec(url);
+                return {
+                    protocol: result[1],
+                    server: result[2],
+                    resource: result[3]
+                };
+            }
+
+            var textURL = 'http://www.devbg.org/forum/index.php';
+            var result = parseURL(textURL);
+
+            console.log(result);
+
+        </script>
+    </body>
+</html>

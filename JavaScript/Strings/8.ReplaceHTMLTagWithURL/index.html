@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+            
+            var htmlText = '<p>Please visit <a href="http://academy.telerik. com">our site</a> to choose a training course. Also visit <a href="www.devbg.org">our forum</a> to discuss the courses.</p>';
+            
+            console.log(htmlText.replace(/<a\s*href=(.*?)\s*>(.*?)<\/a>/ig, '[URL=$1]$2[/URL]'));
+        </script>
+    </body>
+</html>
