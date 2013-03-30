@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Exam Code Template</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function Solve(args) {
+            var valley = args[0].split(', ');
+
+            var numberOfPatterns = parseInt(args[1]);
+            var patterns = [], i, j;
+
+            for (i = 0; i < numberOfPatterns; ++i) {
+                patterns.push(args[2 + i].split(', '));
+            }
+
+            for (i = 0; i < valley.length; ++i) {
+                valley[i] = parseInt(valley[i]);
+            }
+
+            for (i = 0; i < patterns.length; ++i) {
+                for (j = 0; j < patterns[i].length; ++j) {
+                    patterns[i][j] = parseInt(patterns[i][j]);
+                }
+            }
+
+            var visited, bestResult, tmpResult, currentPosition, patternPos;
+            for (i = 0; i < patterns.length; ++i) {
+                visited = [];
+                tmpResult = 0;
+
+                currentPosition = 0;
+                patternPos = 0;
+
+                while (currentPosition >= 0 && currentPosition < valley.length && visited[currentPosition] === undefined) {
+                    visited[currentPosition] = true;
+
+                    tmpResult += valley[currentPosition];
+                    currentPosition += patterns[i][patternPos];
+                    patternPos = (patternPos + 1) % patterns[i].length;
+                }
+
+                if (bestResult === undefined || tmpResult > bestResult) {
+                    bestResult = tmpResult;
+                }
+            }
+
+            return bestResult;
+        }
+
+        (function () {
+
+            var tests = [
+                [
+                    '1, 3, -6, 7, 4, 1, 12',
+                    '3',
+                    '1, 2, -3',
+                    '1, 3, -2',
+                    '1, -1'
+                ]
+            ];
+
+            for (var i in tests) {
+                console.log(Solve(tests[i]));
+            }
+
+        })();
+
+    </script>
+</body>
+</html>

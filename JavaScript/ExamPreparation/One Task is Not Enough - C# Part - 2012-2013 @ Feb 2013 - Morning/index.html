@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Exam Code Template</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function Solve(args) {      
+            return SolveLamps(parseInt(args[0])) + '\n' + SolveRobot(args[1]) + '\n' + SolveRobot(args[2]);
+        }
+
+        function SolveRobot(commands) {
+            var dx = [-1,0,1,0];
+            var dy = [ 0,-1,0,1];
+            var currentDirection = 0, cx = 0, cy = 0;
+            var expanded;
+
+            var minX = 1000000, minY = 1000000, maxX = -1000000, maxY = -1000000, i, steps;
+            for (steps = 0; steps < 4; ++steps) {
+                expanded = false;
+
+                for (i = 0; i < commands.length; ++i) {
+                    if (commands[i] === 'S') {
+                        cx += dx[currentDirection];
+                        cy += dy[currentDirection];
+                    }
+                    else if (commands[i] === 'R') {
+                        currentDirection--;
+                        if (currentDirection < 0) {
+                            currentDirection = 3;
+                        }
+                    }
+                    else if (commands[i] === 'L') {
+                        currentDirection = (currentDirection + 1) % 4;
+                    }
+                }
+
+                if (cx < minX) {
+                    expanded = true;
+                    minX = cx;
+                }
+                if (cx > maxX) {
+                    expanded = true;
+                    maxX = cx;
+                }
+                if (cy < minY) {
+                    expanded = true;
+                    minY = cy;
+                }
+                if (cy > maxY) {
+                    expanded = true;
+                    maxY = cy;
+                }
+            }
+
+            if (expanded) {
+                return 'unbounded';
+            }
+            else {
+                return 'bounded';
+            }
+        }
+
+        function SolveLamps(n) {
+            var states = [];
+            var steps = 2, firstIndex, i, lastIndex;
+
+            while (true) {
+                firstIndex = undefined; 
+                for (i = 1; i <= n; ++i) {
+                    if (states[i] === undefined) {
+                        firstIndex = i;
+                        break;
+                    }
+                }
+
+                if (firstIndex === undefined) {
+                    break;
+                } 
+
+                for (i = firstIndex; i <= n; i += steps) {
+                    states[i] = true;
+                    lastIndex = i;
+                }
+                steps++;
+            }
+            return lastIndex;
+        }
+
+        (function () {
+
+            var tests = [
+                [
+                    8,
+                    'SRSL',
+                    'SSSSR'
+
+                ],
+                [
+                    9,
+                    'SSSSR',
+                    'L'
+                ],
+                [
+                    12,
+                    'L',
+                    'SRSL'
+                ]
+            ];
+
+            for (var i in tests) {
+                console.log(Solve(tests[i]));
+            }
+
+        })();
+
+    </script>
+</body>
+</html>
