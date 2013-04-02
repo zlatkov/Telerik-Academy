@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Exam Code Template</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function Solve(args) {
+            var str = args[0];
+            var currentPos = str.length - 1, result = 0;
+            var cMul = 1;
+            
+            while (currentPos >= 0) {
+                if (currentPos === 0) {
+                    result = result + getNumber(str[currentPos]) * cMul;
+                    cMul *= 168;
+                    currentPos--;
+                }
+                else {
+                    if (str[currentPos - 1].charCodeAt(0) >= 'a'.charCodeAt(0) && str[currentPos - 1].charCodeAt(0) < 'f'.charCodeAt(0)) {
+                        if (str[currentPos].charCodeAt(0) >= 'A'.charCodeAt(0) && str[currentPos].charCodeAt(0) <= 'Z'.charCodeAt(0)) {
+                            result = result + getNumber(str.substr(currentPos - 1, 2)) * cMul;
+                            cMul *= 168;
+                            currentPos -= 2;
+                        }
+                        
+                    }
+                    else if (str[currentPos - 1] === 'f') {
+                        if (str[currentPos].charCodeAt(0) >= 'A'.charCodeAt(0) && str[currentPos].charCodeAt(0) <= 'L'.charCodeAt(0)) {
+                            result = result + getNumber(str.substr(currentPos - 1, 2)) * cMul;
+                            cMul *= 168;
+                            currentPos -= 2;
+                        }
+                    }
+                    else if (str[currentPos - 1].charCodeAt(0) >= 'A'.charCodeAt(0) && str[currentPos - 1].charCodeAt(0) <= 'Z'.charCodeAt(0)) {
+                        result = result + getNumber(str[currentPos]) * cMul;
+                        cMul *= 168;
+                        currentPos--;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        function getNumber(str) {
+            if (str.length === 1) {
+                return str.charCodeAt(0) - 'A'.charCodeAt(0);
+            }
+            else {
+                return 26 * (str.charCodeAt(0) - 'a'.charCodeAt(0) + 1) + (str.charCodeAt(1) - 'A'.charCodeAt(0));
+            }
+        }
+
+        (function () {
+
+            var tests = [
+                [
+                    'U'
+                ],
+                [
+                    'bM'
+                ],
+                [
+                    'BaG'
+                ],
+                [
+                    'CfI'
+                ],
+                [
+                    'A'
+                ],
+                [
+                    'B'
+                ],
+                [
+                    'fL'
+                ]
+            ];
+
+            for (var i in tests) {
+                if (tests[i].length > 0) {
+                    console.log(Solve(tests[i]));
+                }
+            }
+
+        })();
+
+    </script>
+</body>
+</html>
