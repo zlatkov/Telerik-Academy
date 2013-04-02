@@ -3,10 +3,10 @@ function Solve(args) {
     var result;
     var functionData = {};
     var currentLine, tmpRes;
- 
+  
     for (i = 0; i < numberOfCommands; ++i) {
         currentLine = args[i].substr(1, args[i].length - 2).replace(/\s{2,}/ig, ' ').trim();
- 
+  
         if (isOperator(currentLine[0])) {
             tmpRes = evaluateExpression(currentLine, functionData);
             if (tmpRes.terminate) {
@@ -15,7 +15,7 @@ function Solve(args) {
             else {
             result = tmpRes.value;
         }
-             
+              
         }
         else {
             if (defineFunction(currentLine.substr(4), functionData) === false) {
@@ -25,7 +25,7 @@ function Solve(args) {
     }
     return result;
 }
- 
+  
 function defineFunction(line, functionData) {
     var openingBracked = false, i;
     for (i = 0; i < line.length; ++i) {
@@ -35,34 +35,34 @@ function defineFunction(line, functionData) {
         }
     }
     var functionName, tmp;
-
+ 
     if (openingBracked) {
         var seq = line.split('(');
         functionName = seq[0].trim();
-
+ 
         //console.log(functionName + ':' + seq[1].substr(0, seq[1].length - 1).trim());
-
+ 
         tmp = evaluateExpression(seq[1].substr(0, seq[1].length - 1).trim(), functionData);
         if (tmp.terminate) {
             return false;
         }
         functionData[functionName] = tmp.value;
-
+ 
     }
     else {
         var seq = line.split(' ');
         functionName = seq[0].trim();
-
+ 
         //console.log(functionName + ':' + seq[1].trim());
         functionData[functionName] = evaluateExpression(seq[1].trim(), functionData).value;
     }
     return true;
 }
- 
-function evaluateExpression(expr, functionData) { 
+  
+function evaluateExpression(expr, functionData) {
     //console.log(expr);
     var tmpValue = parseInt(expr);
-    if (!isOperator(expr[0])) {  
+    if (!isOperator(expr[0])) { 
         if (isFunctionName(expr)) {
             return {
                 terminate: false,
@@ -75,11 +75,11 @@ function evaluateExpression(expr, functionData) {
                 value: parseInt(expr)
             };
         }
-    }   
-
-    var sequence = expr.substr(2).split(' ');
+    }  
  
-    for (j = 0; j < sequence.length; ++j) { 
+    var sequence = expr.substr(2).split(' ');
+  
+    for (j = 0; j < sequence.length; ++j) {
         if (isFunctionName(sequence[j].toString())) {
             sequence[j] = parseInt(functionData[sequence[j].trim()]);
         }
@@ -87,7 +87,7 @@ function evaluateExpression(expr, functionData) {
             sequence[j] = parseInt(sequence[j]);
         }
     }
- 
+  
     if (expr[0] === '/') {
         for (j = 1; j < sequence.length; ++j) {
             if (sequence[j] === 0) {
@@ -98,13 +98,13 @@ function evaluateExpression(expr, functionData) {
             }
         }
     }
- 
+  
     return {
         terminate: false,
         value: applyOperator(expr[0], sequence)
     }
 }
- 
+  
 function applyOperator (operator, sequence) {
     var result = sequence[0], i;
     for (i = 1; i < sequence.length; ++i) {
@@ -123,7 +123,7 @@ function applyOperator (operator, sequence) {
     }
     return result;
 }
- 
+  
 function isFunctionName(str) {
     for (var i = 0; i < str.length; ++i) {
         if (str[i].charCodeAt(0) < '0'.charCodeAt(0) || str[i].charCodeAt(0) > '9'.charCodeAt(0)) {
@@ -132,11 +132,10 @@ function isFunctionName(str) {
     }
     return false;
 }
- 
+  
 function isOperator(str) {
     return str === '+' || str === '-' || str === '*' || str === '/';
 }
-
 
 (function () {
 
