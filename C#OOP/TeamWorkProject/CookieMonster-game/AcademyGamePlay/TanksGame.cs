@@ -25,7 +25,7 @@ namespace AcademyGamePlay
                 ConsoleRenderer renderer = new ConsoleRenderer(battleFieldHeight, battleFieldWidth);
                 
                 Engine gameEngine = new Engine(renderer, battleTime);
-                gameEngine.OnGameOver += ScreenManager.GameOver;
+                gameEngine.OnGameOver += ScreenManager.GameOver; 
 
                 Initialize(gameEngine);
 

@@ -23,7 +23,7 @@ namespace AcademyGamePlay
 
         public const int MaximumPlayers = 4;  //The maximum number of players which can play the game.
 
-        public EventHandler<GameOverEventArgs> OnGameOver;  //Dispatches when the game finishes.
+        public event EventHandler<GameOverEventArgs> OnGameOver;  //Dispatches when the game finishes.
 
         public Engine(IRenderer renderer, int gameLengthSeconds)
         {
