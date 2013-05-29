@@ -1,0 +1,3 @@
+The expected running time is O(n * n), because the outer cycle needs to perform n steps. 
+The inner cycle will berform n - 1 steps, which means that the total number of steps is 
+n * (n - 1) = n * n - n, which is O(n * n).

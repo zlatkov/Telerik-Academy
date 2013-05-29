@@ -1,0 +1,6 @@
+The worst expected time complexity is O(n * m), because all values in the first column will be event.
+The avarage expected time complexity is O(n * m), because the numbers in the matrix will be random, and
+each number has equal probability of being even or odd, which means that the algorithm will require
+(n / 2) * m steps, which is equal to (n * m) / 2, which is O(n * m).
+The best expected time complexity is O(n), because the numbers in the matrix can be oddm in which case,
+the code will never reach the inner cycle.

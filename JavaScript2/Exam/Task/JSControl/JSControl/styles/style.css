@@ -1,2 +1,12 @@
-﻿body {
+﻿table {
+    border: 1px solid black;
+    border-spacing: 0;
+}
+
+th {
+    background-color: gray;
+}
+
+td, th {
+    border: 1px solid black;
 }

@@ -2,8 +2,80 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
+    <link href="styles/style.css" rel="stylesheet" />
 </head>
 <body>
+    <div id="grid-view-holder"></div>
 
+    <script src="scripts/schoolRepository.js"></script>
+    <script src="scripts/gridView.js"></script>
+
+    <script type="text/javascript">
+        //The API is almost the same as in the exam.
+
+
+        //Task 1
+        var schoolGrid = controls.getGridView("#grid-view-holder");
+        schoolGrid.addHeader("Name", "Location", "Total Students", "Speciality");
+        var pmgRow = schoolGrid.addRow("PMG", "Burgas", 400, "Math");
+        //schoolGrid.render();
+
+        var pmgGrid = pmgRow.getNestedGridView();
+        pmgGrid.addHeader("Title", "Start Date", "Total Students");
+        pmgGrid.addRow("SomeCourse", "SomeDate", 100);
+
+        schoolGrid.addRow("TUES", "SOfia", 500, "IT");
+
+        //Task 2
+        var academyRow = schoolGrid.addRow("Telerik Academy", "Sofia", 5000, "IT");
+        var academyGrid = academyRow.getNestedGridView();
+        academyGrid.addHeader("Title", "Start Date", "Total Students");
+        academyGrid.addRow("JS 2", "11-april-2013", 400);
+        var studentsSEO = academyGrid.addRow("SEO", "15-may-2013", 1300);
+        var studentsGrid = studentsSEO.getNestedGridView();
+        studentsGrid.addHeader("First Name", "Last Name", "Grade", "Marks");
+        studentsGrid.addRow("Pesho", "Peshov", "12", 6)
+        
+        schoolGrid.render();
+
+        //Task 3 --> Click on PMG or  Telerik Academy and then try their subgrids.
+       
+        var students = [
+            schoolRepository.createNewStudent("Kiril", "Ivanov", "10", "4"),
+            schoolRepository.createNewStudent("Petar", "Jelev", "12", "5"),
+            schoolRepository.createNewStudent("Viktoriq", "Nikolova", "8", "6")
+        ];
+
+        var courses = [
+            schoolRepository.createNewCourse("Algebra", "13.05.2013", 2, [
+                schoolRepository.createNewStudent("Kiril", "Ivanov", "10", "4"),
+                schoolRepository.createNewStudent("Petar", "Jelev", "12", "5"),
+            ]),
+            schoolRepository.createNewCourse("Biologiq", "16.06.2013", 1, [
+                schoolRepository.createNewStudent("Viktoriq", "Nikolova", "8", "6")
+            ])
+        ];
+
+        var schools = [
+            schoolRepository.createNewSchool("PMG", "Burgas", 2, "Mathematics", [courses[0], courses[1]]),
+            schoolRepository.createNewSchool("TUES", "Sofia", 1, "IT", [courses[0]])
+        ]
+
+        //Task 4
+        schoolRepository.save("schools-repository", schools);
+        var data = schoolRepository.load("schools-repository");
+        console.log(data);
+
+        //Task5
+        var schoolsFromGridView = schoolGrid.getGridViewData();
+        schoolRepository.save("schools-repository", schoolsFromGridView);
+        var data = schoolRepository.load("schools-repository");
+
+        //Task 6
+        //var schoolGridView2 = controls.buildGridView("#grid-view-holder", data)
+        //schoolGridView2.render();
+        //console.log(data);
+
+    </script>
 </body>
 </html>

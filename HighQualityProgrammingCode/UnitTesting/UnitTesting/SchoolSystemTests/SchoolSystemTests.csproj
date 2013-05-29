@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>f2f6bd6b-70c2-46c9-9e6b-971902fefbc5</ProjectGuid>
+    <ProjectGuid>{B7B571A5-A536-459C-B644-9B7ED65523A7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SchoolSystemTests</RootNamespace>
@@ -50,8 +50,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="StudentTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CourseTests.cs" />
+    <Compile Include="SchoolTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolStystem\SchoolStystem.csproj">
+      <Project>{e57704eb-1f3c-4f0b-84f4-098f569769e1}</Project>
+      <Name>SchoolStystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
