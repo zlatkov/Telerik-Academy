@@ -1,0 +1,3 @@
+The expected running time is O(n * m), because the cycle in the function makes n, steps and the 
+recoursion is repeated m steps, which means that for each of the m, steps, those n steps are repeated, which
+make a total of n * m steps.
