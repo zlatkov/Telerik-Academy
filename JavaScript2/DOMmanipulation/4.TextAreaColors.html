@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Text area colors</title>
+    </head>
+    <body>        
+        <textarea></textarea>
+        <input type="color" id="input-font-color" />
+        <input type="color" id="input-background-color" />
+
+        <script type="text/javascript">
+            (function () {
+                var textArea = document.getElementsByTagName("textarea")[0];
+
+                var fontColorInput = document.getElementById("input-font-color");
+                fontColorInput.onchange = function () {
+                    textArea.style.color = this.value;
+                }
+
+                var backgroundColorInput = document.getElementById("input-background-color");
+                backgroundColorInput.onchange = function () {
+                    textArea.style.backgroundColor = this.value;
+                }
+
+                // Initial settings
+                backgroundColorInput.value = "#ffffff";
+                textArea.style.color = fontColorInput.value;
+                textArea.style.backgroundColor = backgroundColorInput.value;
+
+
+            })();
+        </script>
+    </body>
+</html>

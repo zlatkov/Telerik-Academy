@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tag cloud</title>
+    </head>
+    <body>        
+        <script type="text/javascript">
+            (function () {
+                var tags = [
+                    "cms", "javascript", "js", "ASP.NET MVC", ".net", 
+                    ".net", "css", "wordpress", "xaml", "js", "http", 
+                    "web", "asp.net", "asp.net MVC", "ASP.NET MVC", 
+                    "wp", "javascript", "js", "cms", "html", "javascript",
+                    "http", "http", "CMS", "c++", "java", "JAVASCRIPT", "c",
+                    "C++", "Python", "php", "zend", "symphony", "python",
+                    "pearl", "c++", ".net", "c", ".net", "ajax", "xml", ".net"
+                ];
+
+                function generateTagCloud(tags, minFontSize, maxFontSize) {
+                    var tagOccurences = {}, i;
+                    for (i = 0; i < tags.length; i += 1) {
+                        var currentTag = tags[i].toLowerCase();
+                        if (tagOccurences[currentTag] === undefined) {
+                            tagOccurences[currentTag] = 1;
+                        }
+                        else {
+                            tagOccurences[currentTag]++;
+                        }
+                    }
+
+                    var minimalOccurrenceCount = tags.length, maximalOccurenceCount = 0;
+                    for (var tagName in tagOccurences) {
+                        var currentOccurenceCount = tagOccurences[tagName];
+                        if (currentOccurenceCount < minimalOccurrenceCount) {
+                            minimalOccurrenceCount = currentOccurenceCount;
+                        }
+                        if (currentOccurenceCount > maximalOccurenceCount) {
+                            maximalOccurenceCount = currentOccurenceCount;
+                        }
+                    }
+
+                    var tagCloud = document.createElement("div");
+                    tagCloud.style.width = "200px";
+
+                    for (var tagName in tagOccurences) {
+                        var cloudElement = document.createElement("span");
+                        cloudElement.style.fontSize = calculateFontSize(tagOccurences[tagName], minimalOccurrenceCount, maximalOccurenceCount, minFontSize, maxFontSize) + "px";
+                        cloudElement.appendChild(document.createTextNode(tagName + ' '));
+
+                        tagCloud.appendChild(cloudElement);
+                    }
+
+                    return tagCloud;
+                }
+
+                function calculateFontSize(tagOccurrenceCount, minimalOccurrenceCount, maximalOccurrenceCount,
+                                           minFontSize, maxFontSize) {
+                    return minFontSize + ((tagOccurrenceCount - minimalOccurrenceCount) / (maximalOccurrenceCount - minimalOccurrenceCount)) * (maxFontSize - minFontSize);
+                }
+
+                var tagCloud = generateTagCloud(tags, 17, 43);
+                document.body.appendChild(tagCloud);
+
+            })();
+        </script>
+    </body>
+</html>

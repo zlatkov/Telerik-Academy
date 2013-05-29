@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Divs</title>
+    </head>
+    <body>        
+        <script type="text/javascript">
+            (function() {
+                function createDiv() {
+                    var newDiv = document.createElement('div');
+
+                    newDiv.style.width = getRandomInt(20, 100) + "px";
+                    newDiv.style.width = getRandomInt(20, 100) + "px";
+
+                    newDiv.style.backgroundColor = getRandomColor();
+                    newDiv.style.color = getRandomColor();
+
+                    newDiv.style.textAlign = "center";
+
+                    newDiv.style.position = "absolute";
+                    newDiv.style.top = getRandomInt(0, window.innerHeight - 1) + "px";
+                    newDiv.style.left = getRandomInt(0, window.innerWidth - 1) + "px";
+        
+                    newDiv.style.borderRadius = getRandomInt(1, 10) + "px";
+                    newDiv.style.borderColor = getRandomColor();
+                    newDiv.style.borderWidth = getRandomColor(1, 10) + "px";
+
+                    newDiv.appendChild(createStrongText("div"));
+
+                    return newDiv;
+                }
+
+                function createStrongText(text) {
+                    var strongText = document.createElement("strong");
+                    var textNode = document.createTextNode(text);
+                    strongText.appendChild(textNode);
+	    
+                    return strongText;
+                }
+
+                function getRandomInt(min, max) {
+                    return Math.floor(Math.random() * (max - min  + 1)) + min;
+                }
+
+                function getRandomColor() {
+                    return "rgb(" +
+                        getRandomInt(0, 255) + "," +
+                        getRandomInt(0, 255) + "," +
+                        getRandomInt(0, 255) + ")";
+                }
+
+                var divsContainer = document.createDocumentFragment();
+                var divsCount = getRandomInt(5, 15), i;
+
+                for (i = 0; i < divsCount; i += 1) {
+                    divsContainer.appendChild(createDiv());
+                }
+
+                document.body.appendChild(divsContainer);
+            })();
+        </script>
+    </body>
+</html>

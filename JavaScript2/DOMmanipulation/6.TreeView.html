@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tree view</title>
+        <style>
+            ul {
+                list-style: circle;
+            }
+
+            li ul {
+                display: none;
+            }
+        </style>
+    </head>
+    <body> 
+        
+        <ul>
+            <li>Not nested</li>
+            <li>Not nested</li>
+            <li>Nested
+                <ul>
+                    <li>Not nested</li>
+                    <li>Not nested</li>
+                    <li>Not nested</li>
+                    <li>
+                        Nested
+                        <ul>
+                            <li>
+                                Nested
+                                <ul>
+                                    <li>Not nested</li>
+                                    <li>Not nested</li>
+                                    <li>
+                                        Nested
+                                        <ul>
+                                            <li>
+                                                Nested
+                                                <ul>
+                                                    <li>Not nested</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>Not nested</li>
+                            <li>Not nested</li>
+                            <li>Not nested</li>
+                            <li>Not nested</li>
+                            <li>Not nested</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Not nested</li>
+            <li>
+                Nested
+                <ul>
+                    <li>Not nested</li>
+                    <li>
+                        Nested
+                        <ul>
+                            <li>Not nested</li>
+                            <li>Not nested</li>
+                            <li>Not nested</li>
+                            <li>Not nested</li>
+                        </ul>
+                    </li>
+                    <li>Not nested</li>
+                </ul>
+            </li>
+            <li>Not nested</li>
+        </ul>
+               
+        <script type="text/javascript">
+            (function () {
+                var liTags = document.getElementsByTagName('li');
+
+                for (var i = 0; i < liTags.length; i++) {
+                    liTags[i].addEventListener('click', changeSublistState);
+                }
+
+                function changeSublistState(event) {
+                    if (typeof this.getElementsByTagName('ul')[0] !== 'undefined') {
+                       if (this === event.target &&
+                            this.getElementsByTagName('ul')[0].style.display === 'block') {
+                            this.getElementsByTagName('ul')[0].style.display = 'none';
+                        }
+                        else {
+                            this.getElementsByTagName('ul')[0].style.display = 'block';
+                        }
+                    }
+                }
+            })();
+        </script>
+    </body>
+</html>

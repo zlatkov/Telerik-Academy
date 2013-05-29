@@ -1,0 +1,106 @@
+<html>
+<head>
+    <title>Console module</title>
+</head>
+<body>
+    <script>
+        var consoleModule = (function () {
+
+            function hasPlaceholders(args) {
+                if (args.length > 1) {
+                    return true;
+                }
+            }
+
+            function convertToString(arg) {
+                if (arg === null) {
+                    return "null";
+                }
+                else if (arg === undefined) {
+                    return "undefined";
+                }
+                else if (typeof arg === "object") {
+                    var result = "{";
+                    for (var key in arg) {
+                        result += key + ": " + convertToString(arg[key]) + ", ";
+                    }
+
+                    result = result.trim();
+                    result = result.substr(0, result.length - 1);
+                    result += "}";
+                    return result;
+                }
+                else {
+                    return arg.toString();
+                }
+            }
+
+            function replacePlaceholders(args) {
+                var placeholderData = [];
+                var resultString = args[0];
+
+                for (var i = 0; i < args.length - 1; i++) {
+                    placeholderData[i] = convertToString(args[i + 1]);
+                }
+
+                for (var j = 0; j < placeholderData.length; j++) {
+                    var token = "\\{" + j + "\\}";
+                    var regex = new RegExp(token, "g");
+                    resultString = resultString.replace(regex, placeholderData[j]);
+                }
+
+                return resultString;
+            }
+
+            function parseMessage(args) {
+                var message = "";
+
+                if (hasPlaceholders(args)) {
+                    message = replacePlaceholders(args);
+                }
+                else {
+                    message = args[0];
+                }
+
+                return message;
+            }
+
+            function writeLine() {
+                var message = parseMessage(arguments);
+                console.log(message);
+            }
+
+            function writeError() {
+                var message = parseMessage(arguments);
+                console.error(message);
+            }
+
+            function writeWarning() {
+                var message = parseMessage(arguments);
+                console.warn(message);
+            }
+
+            return {
+                writeLine: writeLine,
+                writeError: writeError,
+                writeWarning: writeWarning
+            }
+        })();
+
+        consoleModule.writeLine("Hello {0} and {1}", "Jimmy Page",
+            {
+                name: {
+                    first: "Robert",
+                    last: "Plant"
+                },
+                age: 65,
+                sex: "Male",
+                salary: undefined
+            });
+
+        consoleModule.writeError("Error: {0}", "test error.");
+        consoleModule.writeWarning("LOLOLO");
+
+    </script>
+</body>
+</html>

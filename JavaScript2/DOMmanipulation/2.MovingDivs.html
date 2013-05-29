@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Moving Divs</title>
+    </head>
+    <body>        
+        <script type="text/javascript">
+            (function () {
+                function createDiv(x, y) {
+                    var newDiv = document.createElement('div');
+
+                    newDiv.style.width = getRandomInt(20, 100) + "px";
+                    newDiv.style.width = getRandomInt(20, 100) + "px";
+
+                    newDiv.style.backgroundColor = getRandomColor();
+                    newDiv.style.color = getRandomColor();
+
+                    newDiv.style.textAlign = "center";
+
+                    newDiv.style.position = "absolute";
+                    newDiv.style.top = x + "px";
+                    newDiv.style.left = y + "px";
+
+                    newDiv.style.borderRadius = getRandomInt(1, 10) + "px";
+                    newDiv.style.borderColor = getRandomColor();
+                    newDiv.style.borderWidth = getRandomColor(1, 10) + "px";
+
+                    newDiv.appendChild(createStrongText("div"));
+
+                    return newDiv;
+                }
+
+                function createStrongText(text) {
+                    var strongText = document.createElement("strong");
+                    var textNode = document.createTextNode(text);
+                    strongText.appendChild(textNode);
+
+                    return strongText;
+                }
+
+                function getRandomInt(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+
+                function getRandomColor() {
+                    return "rgb(" +
+                        getRandomInt(0, 255) + "," +
+                        getRandomInt(0, 255) + "," +
+                        getRandomInt(0, 255) + ")";
+                }
+
+                function degreeToRadians(degrees) {
+                    return parseFloat((Math.PI * degrees) / 180);
+                }
+
+                function createMovingDiv() {
+                    
+                    var radius = getRandomInt(15, 50),
+                        centerX = getRandomInt(2 * radius, window.innerHeight - 2 * radius),
+                        centerY = getRandomInt(2 * radius, window.innerWidth - 2 * radius),
+                        angleDegrees = getRandomInt(0, 360);
+						
+                    return {
+                        centerX: centerX,
+                        centerY: centerY,
+                        radius: radius,
+                        angleDegrees: angleDegrees,
+                        rotationAngleDegrees: 15,
+                        divBlock: createDiv(this.centerX + this.radius * Math.cos(degreeToRadians(this.angleDegrees)),
+                                            this.centerY + this.radius * Math.sin(degreeToRadians(this.angleDegrees))),
+                        move: function () {
+                            this.angleDegrees = (this.angleDegrees + this.rotationAngleDegrees) % 360;
+                            this.divBlock.style.top = this.centerX + this.radius * Math.cos(degreeToRadians(this.angleDegrees)) + "px";
+                            this.divBlock.style.left = this.centerY + this.radius * Math.sin(degreeToRadians(this.angleDegrees)) + "px";
+                        }
+
+                    };
+                }
+
+                var divsContainer = document.createDocumentFragment();
+
+                var movingDivs = [], divsCount = 5, i;
+                for (i = 0; i < divsCount; i += 1) {
+                    var newDiv = createMovingDiv();
+                    movingDivs.push(newDiv);
+                    divsContainer.appendChild(newDiv.divBlock);
+                }
+
+                document.body.appendChild(divsContainer);
+
+                setInterval(function () {
+                    for (var i = 0; i < divsCount; i += 1) {
+                        movingDivs[i].move();
+                    }
+                }, 100);
+
+            })();
+        </script>
+    </body>
+</html>

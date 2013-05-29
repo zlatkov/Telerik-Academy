@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <title>Moving divs module</title>
+    </head>
+    <body>
+        <div id="main-panel"></div>
+        <script>
+            var movingDivsModule = (function () {
+
+                // Array of all the moving divs which will be displayed.
+                var movingDivs = [];
+
+                // Creates a div with some random styles.
+                function createDiv(x, y, text) {
+                    var newDiv = document.createElement('div');
+
+                    newDiv.style.width = getRandomInt(40, 100) + "px";
+
+                    newDiv.style.backgroundColor = getRandomColor();
+                    newDiv.style.color = getRandomColor();
+
+                    newDiv.style.textAlign = "center";
+
+                    newDiv.style.position = "absolute";
+                    newDiv.style.top = x + "px";
+                    newDiv.style.left = y + "px";
+
+                    newDiv.style.borderRadius = getRandomInt(1, 10) + "px";
+                    newDiv.style.borderColor = getRandomColor();
+                    newDiv.style.borderWidth = getRandomColor(1, 10) + "px";
+
+                    newDiv.appendChild(createStrongText(text));
+
+                    return newDiv;
+                }
+
+                function createStrongText(text) {
+                    var strongText = document.createElement("strong");
+                    var textNode = document.createTextNode(text);
+                    strongText.appendChild(textNode);
+
+                    return strongText;
+                }
+
+                function getRandomInt(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+
+                function getRandomColor() {
+                    return "rgb(" +
+                        getRandomInt(0, 255) + "," +
+                        getRandomInt(0, 255) + "," +
+                        getRandomInt(0, 255) + ")";
+                }
+
+                function degreeToRadians(degrees) {
+                    return parseFloat((Math.PI * degrees) / 180);
+                }
+
+                function createDivWithCircularMovement() {
+                    var radius = getRandomInt(15, 50),
+                        centerX = getRandomInt(2 * radius, window.innerHeight - 2 * radius),
+                        centerY = getRandomInt(2 * radius, window.innerWidth - 2 * radius),
+                        angleDegrees = getRandomInt(0, 360);
+
+                    return {
+                        centerX: centerX,
+                        centerY: centerY,
+                        radius: radius,
+                        angleDegrees: angleDegrees,
+                        rotationAngleDegrees: 15,
+                        divBlock: createDiv(this.centerX + this.radius * Math.cos(degreeToRadians(this.angleDegrees)),
+                                            this.centerY + this.radius * Math.sin(degreeToRadians(this.angleDegrees)),
+                                            "circle"),
+                        move: function () {
+                            this.angleDegrees = (this.angleDegrees + this.rotationAngleDegrees) % 360;
+                            this.divBlock.style.top = this.centerX + this.radius * Math.cos(degreeToRadians(this.angleDegrees)) + "px";
+                            this.divBlock.style.left = this.centerY + this.radius * Math.sin(degreeToRadians(this.angleDegrees)) + "px";
+                        }
+                    };
+                }
+
+                function createDivWithRectangularMovement() {
+                    var movementSpeed = getRandomInt(1, 10);
+
+                    var rectBottomLeftX = getRandomInt(10, window.innerHeight);
+                    var rectBottomLeftY = getRandomInt(0, window.innerWidth - 10);
+                    var rectTopRightX = getRandomInt(rectBottomLeftX - getRandomInt(50, 300), rectBottomLeftX - 1);
+                    var rectTopRightY = getRandomInt(rectBottomLeftY + 1, rectBottomLeftY + getRandomInt(50, 300));
+
+                    var currentX = rectBottomLeftX, currentY = rectBottomLeftY;
+                    var movementX = 0, movementY = movementSpeed;
+
+                    return {
+                        currentX: currentX,
+                        currentY: currentY,
+                        rectBottomleftX: rectBottomLeftX,
+                        rectBottomLeftY: rectBottomLeftY,
+                        rectTopRightX: rectTopRightX,
+                        rectTopRightY: rectTopRightY,
+                        movementX: movementX,
+                        movementY: movementY,
+                        divBlock: createDiv(this.currentX, this.currentY, "rect"),
+                        move: function () {
+                            if (this.currentX === this.rectBottomleftX && this.currentY === this.rectBottomLeftY) {
+                                this.currentX = this.rectBottomleftX;
+                                this.movementX = 0;
+                                this.movementY = movementSpeed;
+                            }
+                            else if (this.currentX === this.rectBottomleftX && this.currentY === this.rectTopRightY) {
+                                this.currentY = this.rectTopRightY;
+                                this.movementX = -movementSpeed;
+                                this.movementY = 0;
+                            }
+                            else if (this.currentX === this.rectTopRightX && this.currentY === this.rectTopRightY) {
+                                this.currentX = this.rectTopRightX;
+                                this.movementX = 0;
+                                this.movementY = -movementSpeed;
+                            }
+                            else if (this.currentX === this.rectTopRightX && this.currentY === this.rectBottomLeftY) {
+                                this.currentY = this.rectBottomLeftY;
+                                this.movementX = movementSpeed;
+                                this.movementY = 0;
+                            }
+
+                            this.currentX += this.movementX;
+                            this.currentY += this.movementY;
+
+                            if (this.currentX > this.rectBottomleftX) {
+                                this.currentX = this.rectBottomleftX;
+                            }
+                            if (this.currentX < this.rectTopRightX) {
+                                this.currentX = this.rectTopRightX;
+                            }
+                            if (this.currentY < this.rectBottomLeftY) {
+                                this.currentY = this.rectBottomLeftY;
+                            }
+                            if (this.currentY > this.rectTopRightY) {
+                                this.currentY = this.rectTopRightY;
+                            }
+
+
+                            this.divBlock.style.top = this.currentX + "px";
+                            this.divBlock.style.left = this.currentY + "px";
+                        }
+
+                    };
+                }
+
+                function addDivWithRectangularMovement(selector) {
+                    var element = document.querySelector(selector);
+                    var divWithRectangularMovement = createDivWithRectangularMovement();
+
+                    element.appendChild(divWithRectangularMovement.divBlock);
+                    movingDivs.push(divWithRectangularMovement);
+                }
+
+                function addDivWithCircularMovement(selector) {
+                    var element = document.querySelector(selector);
+                    var divWithCircularMovement = createDivWithCircularMovement();
+
+                    element.appendChild(divWithCircularMovement.divBlock);
+                    movingDivs.push(divWithCircularMovement);
+                }
+
+                function renderDivs() {
+                    for (var i = 0; i < movingDivs.length; ++i) {
+                        movingDivs[i].move();
+                    }
+                }
+
+                return {
+                    addDivWithRectangularMovement: addDivWithRectangularMovement,
+                    addDivWithCircularMovement: addDivWithCircularMovement,
+                    renderDivs: renderDivs
+                };
+            })();
+
+
+            for (var i = 0; i < 3; ++i) {
+                movingDivsModule.addDivWithRectangularMovement("#main-panel");
+                movingDivsModule.addDivWithCircularMovement("#main-panel");
+            }
+
+            setInterval(function () {
+                movingDivsModule.renderDivs();
+            }, 100);
+        </script>
+    </body>
+</html>

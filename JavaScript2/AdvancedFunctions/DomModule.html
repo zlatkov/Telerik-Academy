@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>DOM manipulation module</title>
+    </head>
+    <body>
+		<h1>Click the numbers!</h1>
+        <div id="main-panel"></div>
+			
+        <script>
+            var dom = (function () {
+
+                var elementsBuffer = {};
+                var MAX_ELEMENTS_BUFFER_SIZE = 100;
+
+                function createElement(tagName, attributes, innerHTML) {
+                    var child = document.createElement(tagName);
+
+                    for (var attrName in attributes) {
+                        child.setAttribute(attrName, attributes[attrName]);
+                    }
+					
+                    child.innerHTML = innerHTML;
+                    return child;
+                }
+
+                function getElement(selector) {
+                    return document.querySelector(selector);
+                }
+
+                function getElements(selector) {
+                    return document.querySelectorAll(selector);
+                }
+
+                function addElement(parentSelector, tagName, attributes, innerHTML) {
+                    var parent = getElement(parentSelector);
+                    var newChild = createElement(tagName, attributes, innerHTML);
+
+                    parent.appendChild(newChild);
+                }
+
+                function removeElements(parentSelector, childSelector) {
+                    var elementsToRemove = getElements(parentSelector + " " + childSelector);
+
+                    for (var i = 0; i < elementsToRemove.length; i++) {
+                        elementsToRemove[i].parentNode.removeChild(elementsToRemove[i]);
+                    } 
+                }
+
+                function attachEventHandler(selector, eventType, handler) {
+                    var element = getElement(selector);
+                    // In most non-IE browsers and IE9.
+                    if (element.addEventListener) {
+                        element.addEventListener(eventType, handler, false);
+                    } else {  // For  Internet Explorer 5 or newer.
+                        element.attachEvent("on" + eventType, handler);
+                    }
+                }
+
+                function addElementToBuffer(parentSelector, tagName, attributes, innerHTML) {
+
+                    if (!elementsBuffer[parentSelector]) {
+                        elementsBuffer[parentSelector] = document.createDocumentFragment();
+                    }
+
+                    var element = createElement(tagName, attributes, innerHTML);
+
+                    elementsBuffer[parentSelector].appendChild(element);
+
+                    if (elementsBuffer[parentSelector].childNodes.length === MAX_ELEMENTS_BUFFER_SIZE) {
+                        var parent = getElement(parentSelector);
+                        parent.appendChild(elementsBuffer[parentSelector]);
+
+                        elementsBuffer[parentSelector] = null;
+                    }
+                }
+
+                return {
+                    addElement: addElement,
+                    getElement: getElement,
+                    getElements: getElements,
+                    removeElements: removeElements,
+                    attachEventHandler: attachEventHandler,
+                    addElementToBuffer: addElementToBuffer
+                };
+            })();
+		
+            for (var i = 0; i < 100; i += 1) {
+                dom.addElementToBuffer("#main-panel", "p", {id: "p-" + i, align: "center" }, i);
+            }
+			for (var i = 0; i < 100; i += 1) {
+				dom.attachEventHandler("#p-" + i, "click", function (e) {
+																console.log(e.target);
+																e.target.style.fontSize = getRandomInt(1, 60) + "px";
+																e.target.style.color = getRandomColor();
+															});
+			}
+			
+			function getRandomInt(min, max) {
+                    return Math.floor(Math.random() * (max - min  + 1)) + min;
+                }
+
+			function getRandomColor() {
+				return "rgb(" +
+					getRandomInt(0, 255) + "," +
+					getRandomInt(0, 255) + "," +
+					getRandomInt(0, 255) + ")";
+			}
+			
+        </script>
+    </body>
+</html>

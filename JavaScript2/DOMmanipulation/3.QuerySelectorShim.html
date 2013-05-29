@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QuerySelectorShim, QuerySelectorAllShim</title>
+    </head>
+    <body> 
+        <div class="test-div-class" id="test-div-id1"></div>
+        <div class="test-div-class" id="test-div-id2"></div>
+               
+        <script type="text/javascript">
+            (function () {
+                function convertToArray(items) {
+                    if (items === null) {
+                        return null;
+                    }
+                    else {
+                        var resultArray = [];
+                        if (typeof items.length === "number") {
+                            for (var i = 0; i < items.length; ++i) {
+                                resultArray.push(items[i]);
+                            }
+                        }
+                        else {
+                            resultArray.push(items);
+                        }
+                        return resultArray;
+                    }
+                }
+
+                function querySelectorAllShim(selector) {
+                    if (/^[\w-]+$/.test(selector)) {
+                        var selectedByTagNameList = document.getElementsByTagName(selector);
+
+                        return convertToArray(selectedByTagNameList);
+                    }
+                    else if (/^#[\w-]+$/.test(selector)) {
+                        var selectedById = document.getElementById(selector.substring(1));
+
+                        return convertToArray(selectedById);
+                    }
+                    else if (/^.[\w-]+$/.test(selector)) {
+                        var allElements = document.getElementsByTagName("*"), 
+                            pattern = new RegExp('\\b' + selector.substring(1) + '\\b');
+
+                        var selectedByClassName = [], i;
+                        for (i = 0; i < allElements.length; i += 1) {
+                            if (pattern.test(allElements[i].className)) {
+                                selectedByClassName.push(allElements[i]);
+                            }
+                        }
+
+                        return selectedByClassName;
+                    }
+                }
+
+                function querySelectorShim(selector) {
+                    var singleSelection = querySelectorAllShim(selector)[0];
+
+                    return singleSelection;
+                }
+
+                var divById = querySelectorShim("#test-div-id1");
+                divById.appendChild(document.createTextNode("(selected by id)"));
+
+                var divsByClassName = querySelectorAllShim(".test-div-class");
+                var divsCount = divsByClassName.length;
+                for (var i = 0; i < divsCount; i += 1) {
+                    divsByClassName[i].appendChild(document.createTextNode("(selected by class name)"));
+                }
+
+                var divByTagName = querySelectorShim("div");
+                divByTagName.appendChild(document.createTextNode("(selected by tag name)"));
+
+            })();
+        </script>
+    </body>
+</html>
