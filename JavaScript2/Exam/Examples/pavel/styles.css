@@ -1,0 +1,8 @@
+﻿#tempFolder
+{
+    visibility: hidden;
+    height: 30px;
+    width: 300px;
+    border: 2px solid green;
+    cursor: pointer;
+}

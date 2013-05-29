@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <style>
+        #wrapper {
+            width: 400px;
+            height: 300px;
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+
+        #block2 {
+            margin-top: 5px;
+        }
+
+        #inputClone {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+        <div id="block1">
+            <input id="input" type="text" name="name" />
+            <button onclick="addItem(event)" type="button">ADD</button>
+
+        </div>
+
+        <div id="block2">
+            <button onclick="deleteChecked()" type="button">Delete Checked</button>
+            <button onclick="deleteAll()" type="button">Delete ALL</button>
+            <button onclick="hydeChecked()" type="button">Hide TODO</button>
+            <button onclick="showChecked()" type="button">Show TODO</button>
+
+        </div>
+
+        <div id="list">
+        </div>
+    </div>
+
+
+
+    <script>
+        function showChecked() {
+            var div = document.getElementById("list").children;
+
+            for (var i = 0; i < div.length; i++) {
+                if (div[i].firstElementChild instanceof HTMLInputElement) {
+                    if (div[i].firstElementChild.checked) {
+                        div[i].className = "hyde";
+                        console.log(div[i].tagName);
+                        div[i].firstElementChild.checked = false;
+                    }
+                }
+            }
+
+            for (var i = 0; i < div.length; i++) {
+                if (div[i].className === "hyde") {
+                    div[i].style.display = "";
+                    div[i].className = "";
+                }
+            }
+        }
+
+        function hydeChecked() {
+            var div = document.getElementById("list").children;
+
+            for (var i = 0; i < div.length; i++) {
+                if (div[i].firstElementChild instanceof HTMLInputElement) {
+                    if (div[i].firstElementChild.checked) {
+                        div[i].className = "hyde";
+                        console.log(div[i].tagName);
+                    }
+                }
+            }
+
+            for (var i = 0; i < div.length; i++) {
+                if (div[i].className === "hyde") {
+                    div[i].style.display = "none";
+
+                }
+            }
+        }
+
+        function deleteChecked() {
+            var div = document.getElementById("list").children;
+
+            for (var i = 0; i < div.length; i++) {
+                if (div[i].firstElementChild instanceof HTMLInputElement) {
+                    if (div[i].firstElementChild.checked) {
+                        div[i].className = "forDeleting";
+                        console.log(div[i].tagName);
+
+                        
+                    }
+                }
+            }
+
+            for (var i = 0; i < div.length; i++) {
+                if (div[i].className === "forDeleting") {
+
+                    div[i].parentNode.removeChild(div[i]);
+                    
+                }
+            }
+        }
+
+        function deleteAll() {
+            var div = document.getElementById("list");
+            while (div.firstChild) {
+                div.removeChild(div.firstChild);
+            }
+        }
+
+        function addItem(event) {
+            var div = document.getElementById("list");
+            var input = document.getElementById("input")
+            var inputValue = input.value;
+
+            input.style.border = "";
+            input.placeholder = "Enter TO DO Item";
+            input.placeholder = "Enter TO DO Item";
+
+
+
+            if (inputValue !== "") {
+                div.innerHTML += "<div><input type='checkbox' id='checkbox-1'/><label for='add if you want to work'>" +
+                    inputValue + "</label></div>";
+            }
+            else {
+                input.style.border = "1px solid red";
+                input.placeholder = "Please fill out this field";
+            }
+
+            input.value = "";
+        }
+
+    </script>
+</body>
+</html>
