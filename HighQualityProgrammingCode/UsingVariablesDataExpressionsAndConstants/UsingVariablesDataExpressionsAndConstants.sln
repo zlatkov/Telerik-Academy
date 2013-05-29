@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.RotatingSize", "1.RotatingSize\1.RotatingSize.csproj", "{301F3FD3-112D-4432-8D15-BFCA2E095DAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.CalculateStatistics", "2.CalculateStatistics\2.CalculateStatistics.csproj", "{A42F1294-D6F6-4D5A-BA11-02E6B1876C73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{301F3FD3-112D-4432-8D15-BFCA2E095DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{301F3FD3-112D-4432-8D15-BFCA2E095DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{301F3FD3-112D-4432-8D15-BFCA2E095DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{301F3FD3-112D-4432-8D15-BFCA2E095DAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A42F1294-D6F6-4D5A-BA11-02E6B1876C73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A42F1294-D6F6-4D5A-BA11-02E6B1876C73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A42F1294-D6F6-4D5A-BA11-02E6B1876C73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A42F1294-D6F6-4D5A-BA11-02E6B1876C73}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
