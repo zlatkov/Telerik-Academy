@@ -1,0 +1,14 @@
+#trash-items-panel { 
+
+}
+
+#timer {
+    display: inline-block;
+    margin-top: 1px;
+    margin-bottom: 30px;
+}
+
+#scoreboard-panel {
+    display: inline-block;
+    margin-left: 5px;
+}

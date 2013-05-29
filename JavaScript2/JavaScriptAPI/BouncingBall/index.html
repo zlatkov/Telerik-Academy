@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bouncing ball</title>
+</head>
+<body>
+    <canvas id="output" width="150" height="150"></canvas>
+    <script>Function.prototype.extend = function (parent) {
+            if (arguments.length > 1) {
+                for (var i = 1; i < arguments.length; i += 1) {
+                    var name = arguments[i];
+                    this.prototype[name] = parent.prototype[name];
+                }
+            }
+            else {
+                for (var prop in parent.prototype) {
+                    if (parent.prototype.hasOwnProperty(prop)) {
+                        this.prototype[prop] = parent.prototype[prop];
+                    }
+                }
+            }
+
+            return this;
+        }
+
+        function Publisher() { }
+
+        Publisher.prototype = {
+            publish: function publish(data) {
+                if (!this.subscribers) {
+                    return;
+                }
+                for (var i = 0; i < this.subscribers.length; i++) {
+                    this.subscribers[i](data);
+                }
+            },
+            subscribe: function subscribe(handler) {
+                if (!this.subscribers) {
+                    this.subscribers = [];
+                }
+                if (typeof handler !== 'function') {
+                    return;
+                }
+                this.subscribers.push(handler);
+                return this;
+            }
+        };
+
+        function Timer(interval) {
+            var self = this;
+            var timerId;
+
+            self.setInterval = function (newInterval) {
+                interval = newInterval;
+            }
+
+            self.start = function () {
+                if (!timerId) {
+                    timerId = setInterval(tick, interval);
+                }
+            }
+
+            self.stop = function () {
+                if (timerId) {
+                    clearInterval(timerId);
+                    timerId = 0;
+                }
+            }
+
+            function tick() {
+                self.publish("tick");
+            }
+        }
+
+        Timer.extend(Publisher);
+		
+		
+        var x = 3;
+        var y = 20;
+
+        var moveRight = true;
+        var moveLeft = false;
+        var moveUp = false;
+        var moveDown= true;
+
+        var write = (function () {
+            function write() {
+                var ctx = document.getElementsByTagName("canvas")[0].getContext("2d");
+                ctx.fillStyle = "#f5f";
+                ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+                ctx.beginPath();
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = 1;
+                ctx.arc(x, y, 2, 0, 2 * Math.PI, false);
+                ctx.stroke();
+                if (x === ctx.canvas.width - 3) {
+                    moveLeft = true;
+                    moveRight = false;
+                }
+                else if (x === 3) {
+                    moveLeft = false;
+                    moveRight = true;
+                }
+
+                if (y === ctx.canvas.height  - 3) {
+                    moveUp = true;
+                    moveDown = false;
+                }
+                else if (y == 3) {
+                    moveUp = false;
+                    moveDown = true;
+                }
+
+                if (moveUp) {
+                    y--;
+                }
+                else if (moveDown) {
+                    y++;
+                }
+
+                if (moveRight) {
+                    x++;
+                }
+                else if (moveLeft) {
+                    x--;
+                }
+            }
+            return write;
+        }());
+
+        var t1 = new Timer(20);
+        t1.subscribe(function () { write(); });
+        t1.start();
+    </script>
+</body>
+</html>
